@@ -1,0 +1,36 @@
+configVersion: 1.0.0
+componentName: drv_spi
+coreVersion: 5.9.1
+device: PIC32CM5164LE00064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: drv_spi
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: core
+  type: package
+  version: v3.17.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: drv_spi
+          x: '271'
+          y: '296'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    DRV_SPI_COMMON_MODE:
+      attributes:
+        id: DRV_SPI_COMMON_MODE
+        label: Driver Mode
+      type: Combo
+  userData: {}

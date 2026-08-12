@@ -1,0 +1,176 @@
+configVersion: 1.0.0
+componentName: gfx_hal_le
+coreVersion: 5.9.1
+device: PIC32CM5164LE00064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: gfx_hal_le
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: gfx
+  type: package
+  version: v3.17.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: gfx_hal_le
+          x: '64'
+          y: '260'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    DisplayBacklightDisable:
+      attributes:
+        id: DisplayBacklightDisable
+        label: Back Light Disable Value
+      type: Integer
+    DisplayBacklightEnable:
+      attributes:
+        id: DisplayBacklightEnable
+        label: Back Light Enable Value
+      type: Integer
+    DisplayChipSelectPolarity:
+      attributes:
+        id: DisplayChipSelectPolarity
+        label: Chip Select Polarity Positive?
+      type: Boolean
+    DisplayDataEnable:
+      attributes:
+        id: DisplayDataEnable
+        label: Use Data Enable?
+      type: Boolean
+    DisplayDataEnablePolarity:
+      attributes:
+        id: DisplayDataEnablePolarity
+        label: Data Enable Polarity Positive?
+      type: Boolean
+    DisplayDataWidth:
+      attributes:
+        id: DisplayDataWidth
+        label: Data Width
+      type: Integer
+    DisplayHSYNCNegative:
+      attributes:
+        id: DisplayHSYNCNegative
+        label: HSYNC Polarity Positive?
+      type: Boolean
+    DisplayHeight:
+      attributes:
+        id: DisplayHeight
+        label: Height
+      type: Integer
+    DisplayHorzBackPorch:
+      attributes:
+        id: DisplayHorzBackPorch
+        label: Horizontal Back Porch
+      type: Integer
+    DisplayHorzFrontPorch:
+      attributes:
+        id: DisplayHorzFrontPorch
+        label: Horizontal Front Porch
+      type: Integer
+    DisplayHorzPulseWidth:
+      attributes:
+        id: DisplayHorzPulseWidth
+        label: Horizontal Pulse Width
+      type: Integer
+    DisplayInvLeftShift:
+      attributes:
+        id: DisplayInvLeftShift
+        label: Inverted Left Shift
+      type: Boolean
+    DisplayName:
+      attributes:
+        id: DisplayName
+        label: Display
+      type: String
+    DisplayOrientation:
+      attributes:
+        id: DisplayOrientation
+        label: Display Orientation
+      type: Combo
+    DisplayResetPolarity:
+      attributes:
+        id: DisplayResetPolarity
+        label: Reset Polarity Positive?
+      type: Boolean
+    DisplayUseChipSelect:
+      attributes:
+        id: DisplayUseChipSelect
+        label: Use Chip Select?
+      type: Boolean
+    DisplayUseReset:
+      attributes:
+        id: DisplayUseReset
+        label: Use Reset?
+      type: Boolean
+    DisplayVSYNCNegative:
+      attributes:
+        id: DisplayVSYNCNegative
+        label: VSYNC Polarity Positive?
+      type: Boolean
+    DisplayVertBackPorch:
+      attributes:
+        id: DisplayVertBackPorch
+        label: Vertical Back Porch
+      type: Integer
+    DisplayVertFrontPorch:
+      attributes:
+        id: DisplayVertFrontPorch
+        label: Vertical Front Porch
+      type: Integer
+    DisplayVertPulseWidth:
+      attributes:
+        id: DisplayVertPulseWidth
+        label: Vertical Pulse Width
+      type: Integer
+    DisplayWidth:
+      attributes:
+        id: DisplayWidth
+        label: Width
+      type: Integer
+    DriverName:
+      attributes:
+        id: DriverName
+        label: Graphics Driver
+      type: String
+    HardwareLayerCountHint:
+      attributes:
+        id: HardwareLayerCountHint
+        label: Hardware Layer Count
+      type: Integer
+    PixelClock:
+      attributes:
+        id: PixelClock
+        label: Pixel Clock (Hz)
+      type: Integer
+    PixelClockHint:
+      attributes:
+        id: PixelClockHint
+        label: Pixel Clock (Hz)
+      type: Integer
+    RefreshRate:
+      attributes:
+        id: RefreshRate
+        label: Refresh Rate (Hz)
+      type: Integer
+    gfx_display:
+      attributes:
+        id: gfx_display
+        label: gfx_display
+      type: String
+    gfx_driver:
+      attributes:
+        id: gfx_driver
+        label: gfx_driver
+      type: String
+  userData: {}

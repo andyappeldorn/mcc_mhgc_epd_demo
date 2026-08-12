@@ -1,0 +1,116 @@
+configVersion: 1.0.0
+componentName: le_gfx_driver_epaper
+coreVersion: 5.9.1
+device: PIC32CM5164LE00064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: le_gfx_driver_epaper
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: gfx
+  type: package
+  version: v3.17.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments:
+    children:
+    - children:
+      - attributes:
+          id: SPI Display Interface
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: le_gfx_intf_spi4
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: le_gfx_intf_spi4
+            type: String
+          type: Attributes
+        type: DirectDependency
+      - attributes:
+          id: gfx_driver_epaper
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: gfx_legato
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: gfx_driver
+            type: String
+          type: Attributes
+        type: DirectCapability
+      type: Attachments
+    type: le_gfx_driver_epaper
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: le_gfx_driver_epaper
+          x: '663'
+          y: '350'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    AMPDisplay:
+      attributes:
+        id: AMPDisplay
+        label: AMP Display Module
+      type: Combo
+    DisplayVendor:
+      attributes:
+        id: DisplayVendor
+        label: Display Module Vendor
+      type: Combo
+    EPDHeight:
+      attributes:
+        id: EPDHeight
+        label: Height
+      type: Integer
+    EPDWidth:
+      attributes:
+        id: EPDWidth
+        label: Width
+      type: Integer
+    MikroEDisplay:
+      attributes:
+        id: MikroEDisplay
+        label: MikroE Display Module
+      type: Combo
+    rtosEnableTaskDelay:
+      attributes:
+        id: rtosEnableTaskDelay
+        label: Use Task Delay?
+      type: Boolean
+    rtosTaskDelay:
+      attributes:
+        id: rtosTaskDelay
+        label: Task Delay
+      type: Integer
+    rtosTaskPriority:
+      attributes:
+        id: rtosTaskPriority
+        label: Task Priority
+      type: Integer
+    rtosTaskSize:
+      attributes:
+        id: rtosTaskSize
+        label: Stack Size
+      type: Integer
+  userData: {}
