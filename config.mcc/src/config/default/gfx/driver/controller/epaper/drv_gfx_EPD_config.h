@@ -46,17 +46,19 @@
 /* Display Dimensions                                                          */
 /* ************************************************************************** */
 
-#define DISPLAY_WIDTH  0u
-#define DISPLAY_HEIGHT  0u
+#define DISPLAY_WIDTH  240u
+#define DISPLAY_HEIGHT  416u
 
 /* ************************************************************************** */
 /* Vendor Configuration                                                        */
 /* ************************************************************************** */
 
 
-/* No vendor selected */
+#include "UltraChip/UC8253/drv_gfx_EPD_AMP_UC8253.h"
 
-/* No vendor selected */
+#define DISPLAY_VENDOR_AMP          1
+#define DISPLAY_VENDOR_AMP_240x416  1
+#define DISPLAY_CONTROLLER_UC8253   1
 
 /* ************************************************************************** */
 /* Feature Flags                                                               */

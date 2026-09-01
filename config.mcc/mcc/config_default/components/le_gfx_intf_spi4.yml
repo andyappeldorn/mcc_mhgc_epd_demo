@@ -62,8 +62,8 @@ data:
     - children:
       - attributes:
           id: le_gfx_intf_spi4
-          x: '466'
-          y: '367'
+          x: '535'
+          y: '388'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph
@@ -72,6 +72,12 @@ data:
       attributes:
         id: BaudRate
         label: SPI Speed in Hz
+      children:
+      - children:
+        - attributes:
+            value: '5000000'
+          type: User
+        type: Values
       type: Integer
     BlockingTransfers:
       attributes:

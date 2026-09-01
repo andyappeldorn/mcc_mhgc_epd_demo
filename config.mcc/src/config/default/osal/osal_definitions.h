@@ -24,5 +24,5 @@
 #ifndef OSAL_DEFINITIONS_H
 #define OSAL_DEFINITIONS_H
 
-#include "osal/osal_freertos.h"
+#include "osal/osal_impl_basic.h"
 #endif// OSAL_DEFINITIONS_H

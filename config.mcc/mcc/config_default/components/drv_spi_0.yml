@@ -47,7 +47,7 @@ data:
       - children:
         - attributes:
             id: drv_spi_0
-            value: Synchronous
+            value: Asynchronous
           type: Dynamic
         type: Values
       type: String

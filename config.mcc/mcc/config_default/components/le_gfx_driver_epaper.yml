@@ -62,8 +62,8 @@ data:
     - children:
       - attributes:
           id: le_gfx_driver_epaper
-          x: '663'
-          y: '350'
+          x: '766'
+          y: '366'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph
@@ -77,16 +77,36 @@ data:
       attributes:
         id: DisplayVendor
         label: Display Module Vendor
+      children:
+      - children:
+        - attributes:
+            value: AMP
+          type: User
+        type: Values
       type: Combo
     EPDHeight:
       attributes:
         id: EPDHeight
         label: Height
+      children:
+      - children:
+        - attributes:
+            id: le_gfx_driver_epaper
+            value: '416'
+          type: Dynamic
+        type: Values
       type: Integer
     EPDWidth:
       attributes:
         id: EPDWidth
         label: Width
+      children:
+      - children:
+        - attributes:
+            id: le_gfx_driver_epaper
+            value: '240'
+          type: Dynamic
+        type: Values
       type: Integer
     MikroEDisplay:
       attributes:
@@ -113,4 +133,69 @@ data:
         id: rtosTaskSize
         label: Stack Size
       type: Integer
+    GFX_EPD_UC8253_C:
+      attributes:
+        id: GFX_EPD_UC8253_C
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    GFX_EPD_UC8253_H:
+      attributes:
+        id: GFX_EPD_UC8253_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    GFX_EPD_UC8253_LOCAL_H:
+      attributes:
+        id: GFX_EPD_UC8253_LOCAL_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    GFX_EPD_UC8253_LUT_C:
+      attributes:
+        id: GFX_EPD_UC8253_LUT_C
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    GFX_EPD_UC8253_LUT_H:
+      attributes:
+        id: GFX_EPD_UC8253_LUT_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
   userData: {}

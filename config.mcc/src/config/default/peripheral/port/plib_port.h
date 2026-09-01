@@ -65,6 +65,51 @@
 // *****************************************************************************
 // *****************************************************************************
 
+/*** Macros for GFX_DISP_INTF_PIN_CS pin ***/
+#define GFX_DISP_INTF_PIN_CS_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = ((uint32_t)1U << 31U))
+#define GFX_DISP_INTF_PIN_CS_Clear()             (PORT_REGS->GROUP[0].PORT_OUTCLR = ((uint32_t)1U << 31U))
+#define GFX_DISP_INTF_PIN_CS_Toggle()            (PORT_REGS->GROUP[0].PORT_OUTTGL = ((uint32_t)1U << 31U))
+#define GFX_DISP_INTF_PIN_CS_OutputEnable()      (PORT_REGS->GROUP[0].PORT_DIRSET = ((uint32_t)1U << 31U))
+#define GFX_DISP_INTF_PIN_CS_InputEnable()       (PORT_REGS->GROUP[0].PORT_DIRCLR = ((uint32_t)1U << 31U))
+#define GFX_DISP_INTF_PIN_CS_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 31U)) & 0x01U)
+#define GFX_DISP_INTF_PIN_CS_PIN                  PORT_PIN_PA31
+
+/*** Macros for GFX_DISP_INTF_PIN_RSDC pin ***/
+#define GFX_DISP_INTF_PIN_RSDC_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 0U))
+#define GFX_DISP_INTF_PIN_RSDC_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = ((uint32_t)1U << 0U))
+#define GFX_DISP_INTF_PIN_RSDC_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = ((uint32_t)1U << 0U))
+#define GFX_DISP_INTF_PIN_RSDC_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = ((uint32_t)1U << 0U))
+#define GFX_DISP_INTF_PIN_RSDC_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = ((uint32_t)1U << 0U))
+#define GFX_DISP_INTF_PIN_RSDC_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 0U)) & 0x01U)
+#define GFX_DISP_INTF_PIN_RSDC_PIN                  PORT_PIN_PB00
+
+/*** Macros for GFX_DISP_INTF_PIN_PWR_EN pin ***/
+#define GFX_DISP_INTF_PIN_PWR_EN_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 1U))
+#define GFX_DISP_INTF_PIN_PWR_EN_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = ((uint32_t)1U << 1U))
+#define GFX_DISP_INTF_PIN_PWR_EN_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = ((uint32_t)1U << 1U))
+#define GFX_DISP_INTF_PIN_PWR_EN_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = ((uint32_t)1U << 1U))
+#define GFX_DISP_INTF_PIN_PWR_EN_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = ((uint32_t)1U << 1U))
+#define GFX_DISP_INTF_PIN_PWR_EN_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 1U)) & 0x01U)
+#define GFX_DISP_INTF_PIN_PWR_EN_PIN                  PORT_PIN_PB01
+
+/*** Macros for GFX_DISP_INTF_PIN_RESET pin ***/
+#define GFX_DISP_INTF_PIN_RESET_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 2U))
+#define GFX_DISP_INTF_PIN_RESET_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = ((uint32_t)1U << 2U))
+#define GFX_DISP_INTF_PIN_RESET_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = ((uint32_t)1U << 2U))
+#define GFX_DISP_INTF_PIN_RESET_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = ((uint32_t)1U << 2U))
+#define GFX_DISP_INTF_PIN_RESET_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = ((uint32_t)1U << 2U))
+#define GFX_DISP_INTF_PIN_RESET_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 2U)) & 0x01U)
+#define GFX_DISP_INTF_PIN_RESET_PIN                  PORT_PIN_PB02
+
+/*** Macros for GFX_DISP_INTF_PIN_nBUSY pin ***/
+#define GFX_DISP_INTF_PIN_nBUSY_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 3U))
+#define GFX_DISP_INTF_PIN_nBUSY_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = ((uint32_t)1U << 3U))
+#define GFX_DISP_INTF_PIN_nBUSY_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = ((uint32_t)1U << 3U))
+#define GFX_DISP_INTF_PIN_nBUSY_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = ((uint32_t)1U << 3U))
+#define GFX_DISP_INTF_PIN_nBUSY_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = ((uint32_t)1U << 3U))
+#define GFX_DISP_INTF_PIN_nBUSY_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 3U)) & 0x01U)
+#define GFX_DISP_INTF_PIN_nBUSY_PIN                  PORT_PIN_PB03
+
 // *****************************************************************************
 /* PORT Group
 
@@ -292,6 +337,40 @@ typedef enum
 // Section: Generated API based on pin configurations done in Pin Manager
 // *****************************************************************************
 // *****************************************************************************
+// *****************************************************************************
+/* Function:
+    void PORT_Initialize(void)
+
+  Summary:
+    Initializes the PORT Library.
+
+  Description:
+    This function initializes all ports and pins as configured in the
+    MHC Pin Manager.
+
+  Precondition:
+    None.
+
+  Parameters:
+    None.
+
+  Returns:
+    None.
+
+  Example:
+    <code>
+
+    PORT_Initialize();
+
+    </code>
+
+  Remarks:
+    The function should be called once before calling any other PORTS PLIB
+    functions.
+*/
+
+void PORT_Initialize(void);
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: PORT APIs which operates on multiple pins of a group

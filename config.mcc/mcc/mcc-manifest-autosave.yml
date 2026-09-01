@@ -2,7 +2,7 @@
 
 manifest_file_version: 1.0.0
 project: config_default
-creation_date: 2026-08-12T09:18:32.595-07:00[America/Phoenix]
+creation_date: 2026-09-01T14:45:27.490-05:00[America/Chicago]
 operating_system: Windows 11
 mcc_mode: VSCodePlugin
 mcc_mode_version: Unknown
@@ -21,6 +21,5 @@ modules:
 - {name: CMSIS_6, type: HARMONY, version: v6.3.0}
 - {name: csp, type: HARMONY, version: v3.26.0}
 - {name: core, type: HARMONY, version: v3.17.0}
-- {name: FreeRTOS-Kernel, type: HARMONY, version: V11.3.0}
 - {name: gfx, type: HARMONY, version: v3.17.0}
 - {name: touch, type: HARMONY, version: v3.20.1}

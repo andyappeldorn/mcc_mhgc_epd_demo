@@ -252,20 +252,13 @@
                 "config.mcc/src/config/default/system/time/src/sys_time.c",
                 "config.mcc/src/config/default/system/input/sys_input.c",
                 "config.mcc/src/config/default/system/input/sys_input_listener.c",
-                "config.mcc/src/third_party/rtos/FreeRTOS/Source/croutine.c",
-                "config.mcc/src/third_party/rtos/FreeRTOS/Source/list.c",
-                "config.mcc/src/third_party/rtos/FreeRTOS/Source/queue.c",
-                "config.mcc/src/third_party/rtos/FreeRTOS/Source/FreeRTOS_tasks.c",
-                "config.mcc/src/third_party/rtos/FreeRTOS/Source/timers.c",
-                "config.mcc/src/third_party/rtos/FreeRTOS/Source/event_groups.c",
-                "config.mcc/src/third_party/rtos/FreeRTOS/Source/stream_buffer.c",
-                "config.mcc/src/third_party/rtos/FreeRTOS/Source/portable/MemMang/heap_1.c",
-                "config.mcc/src/third_party/rtos/FreeRTOS/Source/portable/GCC/ARM_CM23_NTZ/non_secure/port.c",
-                "config.mcc/src/third_party/rtos/FreeRTOS/Source/portable/GCC/ARM_CM23_NTZ/non_secure/portasm.c",
                 "config.mcc/src/config/default/driver/spi/src/drv_spi.c",
                 "config.mcc/src/config/default/system/int/src/sys_int.c",
-                "config.mcc/src/config/default/osal/osal_freertos.c",
-                "config.mcc/src/app.c"
+                "config.mcc/src/app.c",
+                "config.mcc/src/config/default/gfx/driver/controller/epaper/UltraChip/UC8253/drv_gfx_EPD_AMP_UC8253.c",
+                "config.mcc/src/config/default/gfx/driver/controller/epaper/UltraChip/UC8253/drv_gfx_EPD_AMP_UC8253_LUT.c",
+                "config.mcc/src/config/default/peripheral/tc/plib_tc0.c",
+                "config.mcc/src/config/default/tasks.c"
             ]
         }
     ]

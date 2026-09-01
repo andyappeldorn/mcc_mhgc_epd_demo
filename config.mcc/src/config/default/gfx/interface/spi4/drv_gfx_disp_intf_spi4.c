@@ -158,7 +158,7 @@ GFX_Disp_Intf GFX_Disp_Intf_Open(void)
 {   
     DRV_SPI_TRANSFER_SETUP setup;
     
-    setup.baudRateInHz = 1000000;
+    setup.baudRateInHz = 5000000;
     setup.clockPhase = DRV_SPI_CLOCK_PHASE_VALID_LEADING_EDGE;
     setup.clockPolarity = DRV_SPI_CLOCK_POLARITY_IDLE_LOW;
     setup.dataBits = DRV_SPI_DATA_BITS_8;

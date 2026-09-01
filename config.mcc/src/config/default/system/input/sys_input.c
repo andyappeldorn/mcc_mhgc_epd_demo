@@ -24,7 +24,6 @@
 // DOM-IGNORE-END
 
 
-#include "osal/osal.h"
 #include "system/input/sys_input.h"
 
 #include <string.h>
@@ -83,8 +82,6 @@ uint32_t touchNextEvent;*/
 SYS_INP_InputListener listeners[SYS_INP_MAX_LISTENERS];
 uint8_t listenerFlags[SYS_INP_MAX_LISTENERS];
 
-OSAL_MUTEX_HANDLE_TYPE listenersLock;
-OSAL_MUTEX_HANDLE_TYPE eventsLock;
 
 /*static int32_t _insertIntoEventQueue(InputEvent* evt)
 {
@@ -101,8 +98,6 @@ int32_t SYS_INP_Init(void)
 {
     eventCount = 0;
 
-    OSAL_MUTEX_Create(&eventsLock);
-    OSAL_MUTEX_Create(&listenersLock);
     
     memset(generalEvents, 0, sizeof(generalEvents));
     //memset(touchEvents, 0, sizeof(touchEvents));
@@ -120,7 +115,6 @@ void SYS_INP_Tasks(void)
     if(eventCount == 0)
         return;
 
-    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
     
     // iterate over all listeners
     for(j = 0; j < SYS_INP_MAX_LISTENERS; j++)
@@ -221,7 +215,6 @@ void SYS_INP_Tasks(void)
     
     eventCount = 0;
 
-    OSAL_MUTEX_Unlock(&eventsLock);
     
 }
 
@@ -229,7 +222,6 @@ int32_t SYS_INP_AddListener(SYS_INP_InputListener* lst)
 {
     int32_t i;
 
-    OSAL_MUTEX_Lock(&listenersLock, OSAL_WAIT_FOREVER);
     
     // find the next available listener slot
     for(i = 0; i < SYS_INP_MAX_LISTENERS; i++)
@@ -239,41 +231,34 @@ int32_t SYS_INP_AddListener(SYS_INP_InputListener* lst)
             listeners[i] = *lst;
             listenerFlags[i] = 1;
             
-            OSAL_MUTEX_Unlock(&listenersLock);
             return i;
         }
     }
     
-    OSAL_MUTEX_Unlock(&listenersLock);
     
     return -1;
 }
 
 int32_t SYS_INP_RemoveListener(uint16_t idx)
 {
-    OSAL_MUTEX_Lock(&listenersLock, OSAL_WAIT_FOREVER);
     
     if(idx >= SYS_INP_MAX_LISTENERS || listenerFlags[idx] == 0)
     {
-    OSAL_MUTEX_Unlock(&listenersLock);
         return -1;
     }
     
     // clear the indicated array index
     listenerFlags[idx] = 0;
     
-    OSAL_MUTEX_Unlock(&listenersLock);
     return 0;
 }
 
 int32_t SYS_INP_InjectKeyDown(SYS_INP_Key key)
 {
-    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
     
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
     {
-        OSAL_MUTEX_Unlock(&eventsLock);
         return -1;
     }
     
@@ -282,19 +267,16 @@ int32_t SYS_INP_InjectKeyDown(SYS_INP_Key key)
 
     eventCount++;
 
-    OSAL_MUTEX_Unlock(&eventsLock);
 
     return 0;
 }
 
 int32_t SYS_INP_InjectKeyUp(SYS_INP_Key key)
 {
-    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
     
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
     {
-    OSAL_MUTEX_Unlock(&listenersLock);
         return -1;
     }
     
@@ -303,19 +285,16 @@ int32_t SYS_INP_InjectKeyUp(SYS_INP_Key key)
     
     eventCount++;
 
-    OSAL_MUTEX_Unlock(&eventsLock);
     
     return 0;
 }
 
 int32_t SYS_INP_InjectMouseButtonDown(SYS_INP_MouseButton btn)
 {
-    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
     
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
     {
-        OSAL_MUTEX_Unlock(&eventsLock);
         return -1;
     }
     
@@ -324,19 +303,16 @@ int32_t SYS_INP_InjectMouseButtonDown(SYS_INP_MouseButton btn)
     
     eventCount++;
 
-    OSAL_MUTEX_Unlock(&eventsLock);
     
     return 0;
 }
 
 int32_t SYS_INP_InjectMouseButtonUp(SYS_INP_MouseButton btn)
 {
-    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
     
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
     {
-        OSAL_MUTEX_Unlock(&eventsLock);
         return -1;
     }
     
@@ -345,19 +321,16 @@ int32_t SYS_INP_InjectMouseButtonUp(SYS_INP_MouseButton btn)
     
     eventCount++;
 
-    OSAL_MUTEX_Unlock(&eventsLock);
 
     return 0;
 }
 
 int32_t SYS_INP_InjectMouseMove(uint16_t x, uint16_t y)
 {
-    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
     
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
     {
-        OSAL_MUTEX_Unlock(&eventsLock);
         return -1;
     }
     
@@ -367,7 +340,6 @@ int32_t SYS_INP_InjectMouseMove(uint16_t x, uint16_t y)
     
     eventCount++;
     
-    OSAL_MUTEX_Unlock(&eventsLock);
     
     return 0;
 }
@@ -375,12 +347,10 @@ int32_t SYS_INP_InjectMouseMove(uint16_t x, uint16_t y)
 
 int32_t SYS_INP_InjectTouchDown(uint16_t idx, uint16_t x, uint16_t y)
 {
-    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
     
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
     {
-        OSAL_MUTEX_Unlock(&eventsLock);
         return -1;
     }
     
@@ -391,19 +361,16 @@ int32_t SYS_INP_InjectTouchDown(uint16_t idx, uint16_t x, uint16_t y)
     
     eventCount++;
     
-    OSAL_MUTEX_Unlock(&eventsLock);
     
     return 0;
 }
 
 int32_t SYS_INP_InjectTouchUp(uint16_t idx, uint16_t x, uint16_t y)
 {
-    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
     
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
     {
-        OSAL_MUTEX_Unlock(&eventsLock);
         return -1;
     }
     
@@ -414,19 +381,16 @@ int32_t SYS_INP_InjectTouchUp(uint16_t idx, uint16_t x, uint16_t y)
     
     eventCount++;
     
-    OSAL_MUTEX_Unlock(&eventsLock);
     
     return 0;
 }
 
 int32_t SYS_INP_InjectTouchMove(uint16_t idx, uint16_t x, uint16_t y)
 {
-    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
     
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
     {
-        OSAL_MUTEX_Unlock(&eventsLock);
         return -1;
     }
     
@@ -437,7 +401,6 @@ int32_t SYS_INP_InjectTouchMove(uint16_t idx, uint16_t x, uint16_t y)
     
     eventCount++;
     
-    OSAL_MUTEX_Unlock(&eventsLock);
     
     return 0;
 }
@@ -447,12 +410,10 @@ int32_t SYS_INP_InjectFlickGesture(uint16_t x,
                                    uint16_t dir,
                                    uint16_t dist)
 {
-    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
     
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
     {
-        OSAL_MUTEX_Unlock(&eventsLock);
         return -1;
     }
     
@@ -464,7 +425,6 @@ int32_t SYS_INP_InjectFlickGesture(uint16_t x,
     
     eventCount++;
 
-    OSAL_MUTEX_Unlock(&eventsLock);
     
     return 0;
 }
@@ -474,12 +434,10 @@ int32_t SYS_INP_InjectPinchGesture(uint16_t x,
                                    uint16_t angle,
                                    uint16_t sep)
 {
-    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
     
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
     {
-        OSAL_MUTEX_Unlock(&eventsLock);
         return -1;
     }
     
@@ -491,7 +449,6 @@ int32_t SYS_INP_InjectPinchGesture(uint16_t x,
     
     eventCount++;
     
-    OSAL_MUTEX_Unlock(&eventsLock);
 
     return 0;
 }
@@ -501,12 +458,10 @@ int32_t SYS_INP_InjectStretchGesture(uint16_t x,
                                      uint16_t angle,
                                      uint16_t sep)
 {
-    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
 
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
     {
-        OSAL_MUTEX_Unlock(&eventsLock);
         return -1;
     }
     
@@ -518,7 +473,6 @@ int32_t SYS_INP_InjectStretchGesture(uint16_t x,
     
     eventCount++;
     
-    OSAL_MUTEX_Unlock(&eventsLock);
 
     return 0;
 }
@@ -529,12 +483,10 @@ int32_t SYS_INP_InjectRotateGesture(uint16_t x,
                                     uint16_t sep,
                                     uint16_t dir)
 {
-    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
 
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
     {
-        OSAL_MUTEX_Unlock(&eventsLock);
         return -1;
     }
     
@@ -547,7 +499,6 @@ int32_t SYS_INP_InjectRotateGesture(uint16_t x,
     
     eventCount++;
     
-    OSAL_MUTEX_Unlock(&eventsLock);
     
     return 0;
 }
@@ -557,11 +508,9 @@ int32_t SYS_INP_InjectGenericGesture(uint16_t gest,
                                      uint16_t y,
                                      void * parm)
 {
-    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
         // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
     {
-        OSAL_MUTEX_Unlock(&eventsLock);
         return -1;
     }
     
@@ -573,7 +522,6 @@ int32_t SYS_INP_InjectGenericGesture(uint16_t gest,
     
     eventCount++;
 	
-        OSAL_MUTEX_Unlock(&eventsLock);
     
     return 0;
 }

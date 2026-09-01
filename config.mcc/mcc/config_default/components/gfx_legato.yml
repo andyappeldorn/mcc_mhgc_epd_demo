@@ -44,8 +44,8 @@ data:
     - children:
       - attributes:
           id: gfx_legato
-          x: '865'
-          y: '377'
+          x: '1045'
+          y: '372'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph
@@ -69,6 +69,12 @@ data:
       attributes:
         id: enablePerformanceMetrics
         label: Enable Performance Metrics?
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
       type: Boolean
     enableUsageMonitorPrint:
       attributes:
@@ -105,4 +111,30 @@ data:
         id: rtosTaskSize
         label: Stack Size
       type: Integer
+    LE_HARMONY_PERF_C:
+      attributes:
+        id: LE_HARMONY_PERF_C
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: File
+    LE_HARMONY_PERF_H:
+      attributes:
+        id: LE_HARMONY_PERF_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: File
   userData: {}
