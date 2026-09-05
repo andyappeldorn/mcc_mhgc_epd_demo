@@ -82,7 +82,7 @@ void SYS_Tasks ( void )
 
     /* Maintain Middleware & Other Libraries */
     
-    leUpdate(0);
+    Legato_Tasks();
 
 
     SYS_INP_Tasks();

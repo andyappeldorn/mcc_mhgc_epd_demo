@@ -4,7 +4,7 @@
 
 
 project: config_default
-creation_date: 2026-09-01T14:44:14.299-05:00[America/Chicago]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2026-09-01T16:58:11.227-05:00[America/Chicago]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 11
 mcc_mode: VSCodePlugin            # [IDE|Standalone|Headless]
 mcc_version: v5.7.1
@@ -17,7 +17,7 @@ modules:
     - {name: "CMSIS_6", version: "v6.3.0"}
     - {name: "csp", version: "v3.26.0"}
     - {name: "core", version: "v3.17.0"}
-    - {name: "gfx", version: "v3.17.0"}
+    - {name: "gfx", version: "v3.17.1"}
     - {name: "touch", version: "v3.20.1"}
 
 packs:

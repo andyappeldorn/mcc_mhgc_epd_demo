@@ -233,15 +233,15 @@ void SYS_Initialize ( void* data )
 
 
 
-    SERCOM2_SPI_Initialize();
-
     NVMCTRL_Initialize();
+
+    SERCOM2_SPI_Initialize();
 
     EVSYS_Initialize();
 
-    RTC_Initialize();
-
     TC0_TimerInitialize();
+
+    RTC_Initialize();
 
 
     /* MISRAC 2023 deviation block start */
@@ -266,7 +266,7 @@ void SYS_Initialize ( void* data )
 
 
     // initialize UI library
-    leInitialize(&);
+    Legato_Initialize();
 
     
 	touch_init();
