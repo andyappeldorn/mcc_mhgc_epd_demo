@@ -90,12 +90,12 @@ extern leImage btn2;
 
 /*********************************
  * Legato Image Asset
- * Name:   QR
- * Size:   179x179 pixels
+ * Name:   arrowDoubleLine
+ * Size:   80x80 pixels
  * Type:   RGB Data
  * Format: MONOCHROME
  ***********************************/
-extern leImage QR;
+extern leImage arrowDoubleLine;
 
 /*****************************************************************************
  * Legato Graphics Font Assets
@@ -107,7 +107,7 @@ extern leImage QR;
  * Baseline:     26
  * Style:        Plain
  * Glyph Count:  95
- * Range Count:  12
+ * Range Count:  7
  * Glyph Ranges: 0x20-0x7E
 ***********************************/
 extern leRasterFont FontSmall;
@@ -128,30 +128,20 @@ extern leRasterFont FontBig;
  * Legato String Table
  * Encoding        ASCII
  * Language Count: 1
- * String Count:   7
+ * String Count:   2
  *****************************************************************************/
 
 // language IDs
 #define language_Default    0
 
 // string IDs
-#define stringID_strFast    0
-#define stringID_strSmart    1
-#define stringID_strEasy    2
-#define stringID_srtHelp    3
-#define stringID_strBack    4
-#define stringID_strQuickstart    5
-#define stringID_strCount    6
+#define stringID_strQuickstart    0
+#define stringID_strCount    1
 
 extern const leStringTable stringTable;
 
 
 // string list
-extern leTableString string_strFast;
-extern leTableString string_strSmart;
-extern leTableString string_strEasy;
-extern leTableString string_srtHelp;
-extern leTableString string_strBack;
 extern leTableString string_strQuickstart;
 extern leTableString string_strCount;
 

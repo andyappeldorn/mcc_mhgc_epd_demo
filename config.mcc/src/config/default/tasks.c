@@ -78,6 +78,8 @@ void SYS_Tasks ( void )
     /* Maintain Device Drivers */
         DRV_EPD_Update();
 
+    drv_touch_itd_task();
+
 
 
     /* Maintain Middleware & Other Libraries */

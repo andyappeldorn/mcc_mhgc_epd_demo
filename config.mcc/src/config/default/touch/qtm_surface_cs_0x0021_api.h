@@ -6,13 +6,13 @@
     Microchip Technology Inc.
 
   File Name:
-    qtm_scroller_0x000b_api.h
+    qtm_surface_cs_0x0021_api.h
 
   Summary:
     QTouch Modular Library
 
   Description:
-    API for scroller module
+    API for surface single-touch
 	
 *******************************************************************************/
 
@@ -39,140 +39,142 @@ implied, are granted under any patent or other intellectual property rights of
 Microchip or any third party.
 ************************************************************************************/
 
-/* QTouch Modular Library */
-/* API Header file - qtm_scroller_0x000b */
+/*============================================================================
+Filename : qtm_surface_1finger_touch_api.h
+Project : QTouch Modular Library
+Purpose : Structs and definitions for use within modules
+------------------------------------------------------------------------------
+Copyright (C) 2019 Microchip. All rights reserved.
+------------------------------------------------------------------------------
+============================================================================*/
 
-#ifndef TOUCH_API_SCROLLER_H
-#define TOUCH_API_SCROLLER_H
+#ifndef TOUCH_API_SURFACE_CS_H
+#define TOUCH_API_SURFACE_CS_H
 
 /* Include files */
 #include <stdint.h>
 #include "qtm_common_components_api.h"
 
-/* Scroller status bits */
-#define SCROLLER_TOUCH_ACTIVE                (uint8_t)((uint8_t)1<<0u) 		/* Bit 0 */
-#define SCROLLER_POSITION_CHANGE		        (uint8_t)((uint8_t)1<<1u) 		/* Bit 1 */
-#define SCROLLER_REBURST			(uint8_t)((uint8_t)1<<7u) 		/* Bit 7 */
+/* Axis status bits */
+#define TOUCH_ACTIVE                (uint8_t)((uint8_t)1u<<0u) 		/* Bit 0 */
+#define POSITION_CHANGE		    (uint8_t)((uint8_t)1u<<1u) 		/* Bit 1 */
+#define POSITION_H_INC		    (uint8_t)((uint8_t)1u<<2u) 		/* Bit 2 */
+#define POSITION_H_DEC		    (uint8_t)((uint8_t)1u<<3u) 		/* Bit 3 */
+#define POSITION_V_INC		    (uint8_t)((uint8_t)1u<<4u) 		/* Bit 4 */
+#define POSITION_V_DEC		    (uint8_t)((uint8_t)1u<<5u) 		/* Bit 5 */
+#define SURFACE_REBURST	    	    (uint8_t)((uint8_t)1u<<7u) 		/* Bit 7 */
 
 /* Extract Resolution / Deadband */
-#define SCROLLER_RESOLUTION(m) (uint8_t)(((m) & 0xF0u) >> 4u)
-#define SCROLLER_DEADBAND(m) (uint8_t)((m) & 0x0Fu)
+#define SCR_RESOLUTION(m) ((uint8_t)(((m) & 0xF0u) >> 4u))
+#define SCR_DEADBAND(m) ((uint8_t)((m) & 0x0Fu))
 
 /* Combine Resolution / Deadband */
-#define SCROLLER_RESOL_DEADBAND(r,p) (uint8_t)(((r) << 4u)|(p))
-  
+#define SCR_RESOL_DEADBAND(r,p) ((uint8_t)(((r) << 4u)|(p)))
+
+/* Position filtering */
+#define POSITION_IIR_MASK		0x03u
+#define POSITION_MEDIAN_ENABLE	0x10u
+#define SCR_MEDIAN_IIR(r,p) ((uint8_t)(((r) << 4u)|(p)))
+
 /* scroller resolution setting */
-typedef enum tag_scroller_resolution_t
+typedef enum tag_resolution_t
 {
-	SCR_RESOL_2_BIT = 2,
-	SCR_RESOL_3_BIT,
-	SCR_RESOL_4_BIT,
-	SCR_RESOL_5_BIT,
-	SCR_RESOL_6_BIT,
-	SCR_RESOL_7_BIT,
-	SCR_RESOL_8_BIT,
-	SCR_RESOL_9_BIT,
-	SCR_RESOL_10_BIT,
-	SCR_RESOL_11_BIT,
-	SCR_RESOL_12_BIT	
+  RESOL_2_BIT = 2,
+  RESOL_3_BIT,
+  RESOL_4_BIT,
+  RESOL_5_BIT,
+  RESOL_6_BIT,
+  RESOL_7_BIT,
+  RESOL_8_BIT,
+  RESOL_9_BIT,
+  RESOL_10_BIT,
+  RESOL_11_BIT,
+  RESOL_12_BIT	
 }
-scroller_resolution_t;
+scr_resolution_t;
 
 
 /* scroller deadband percentage setting */
-typedef enum tag_scroller_deadband_t
+typedef enum tag_deadband_t
 {
-	SCR_DB_NONE,
-	SCR_DB_1_PERCENT,
-	SCR_DB_2_PERCENT,
-	SCR_DB_3_PERCENT,
-	SCR_DB_4_PERCENT,
-	SCR_DB_5_PERCENT,
-	SCR_DB_6_PERCENT,
-	SCR_DB_7_PERCENT,
-	SCR_DB_8_PERCENT,
-	SCR_DB_9_PERCENT,
-	SCR_DB_10_PERCENT,
-	SCR_DB_11_PERCENT,
-	SCR_DB_12_PERCENT,
-	SCR_DB_13_PERCENT,
-	SCR_DB_14_PERCENT,
-	SCR_DB_15_PERCENT
+  DB_NONE,
+  DB_1_PERCENT,
+  DB_2_PERCENT,
+  DB_3_PERCENT,
+  DB_4_PERCENT,
+  DB_5_PERCENT,
+  DB_6_PERCENT,
+  DB_7_PERCENT,
+  DB_8_PERCENT,
+  DB_9_PERCENT,
+  DB_10_PERCENT,
+  DB_11_PERCENT,
+  DB_12_PERCENT,
+  DB_13_PERCENT,
+  DB_14_PERCENT,
+  DB_15_PERCENT
 }
-scroller_deadband_t;
+scr_deadband_t;
   
 /*----------------------------------------------------------------------------
  *     Structure Declarations
  *----------------------------------------------------------------------------*/
 
-/* Configuration - Group of scrollers */
+/* Surface CS Configuration */
 typedef struct
 {
-	qtm_touch_key_data_t *qtm_touch_key_data;
-	uint8_t num_scrollers;	
-}qtm_scroller_group_config_t;
+  uint16_t start_key_h;						/* Start key of horizontal axis */
+  uint8_t number_of_keys_h;					/* Number of keys in horizontal axis */
+  uint16_t start_key_v;						/* Start key of vertical axis */
+  uint8_t number_of_keys_v;					/* Number of keys in vertical axis */
+  uint8_t resol_deadband;					/* Resolution 2 to 12 bits | Deadband 0% to 15% */
+  uint8_t position_hysteresis;				/* Distance threshold for initial move or direction change */
+  uint8_t position_filter;					/* Bits 1:0 = IIR (0% / 25% / 50% / 75%), Bit 4 = Enable Median Filter (3-point) */
+  uint16_t contact_min_threshold;			/* Contact threshold / Sum of 4 deltas */
+  qtm_touch_key_data_t *qtm_touch_key_data;	/* Pointer to touch key data */
+}qtm_surface_cs_config_t;
 
-/* Data - Group of scrollers */
+/* Surface CS Data */
 typedef struct
 {
-	uint8_t scroller_group_status;
-}qtm_scroller_group_data_t;
-
-/* Configuration - Each slider / wheel */
-typedef struct
-{
-    uint8_t type;
-    uint16_t start_key;
-    uint8_t number_of_keys;
-    uint8_t resol_deadband;	
-    uint8_t position_hysteresis;
-    uint16_t contact_min_threshold;
-}qtm_scroller_config_t;
-
-/* Data Each - slider / wheel */
-typedef struct
-{
-    uint8_t scroller_status;
-    uint8_t right_hyst;
-    uint8_t left_hyst;
-    uint16_t raw_position;
-    uint16_t position;
-    uint16_t contact_size;
-}qtm_scroller_data_t;
+  uint8_t qt_surface_status;
+  uint16_t h_position_abs;
+  uint16_t h_position;
+  uint16_t v_position_abs;
+  uint16_t v_position;
+  uint16_t contact_size;
+}qtm_surface_contact_data_t;
 
 /* Container */
 typedef struct
 {
-    qtm_scroller_group_data_t *qtm_scroller_group_data;
-    qtm_scroller_group_config_t *qtm_scroller_group_config;
-    qtm_scroller_data_t *qtm_scroller_data;
-    qtm_scroller_config_t *qtm_scroller_config;
-} qtm_scroller_control_t;
-
+  qtm_surface_contact_data_t *qtm_surface_contact_data;
+  qtm_surface_cs_config_t *qtm_surface_cs_config;
+} qtm_surface_cs_control_t;
 
 /*----------------------------------------------------------------------------
  *   prototypes
  *----------------------------------------------------------------------------*/
 
 /*============================================================================
-touch_ret_t qtm_init_scroller_module(qtm_scroller_control_t *qtm_scroller_control)
+touch_ret_t qtm_init_surface_cs(qtm_surface_cs_control_t *qtm_surface_cs_control);
 ------------------------------------------------------------------------------
 Purpose: Initialize a scroller
 Input  : Pointer to scroller group control data
 Output : TOUCH_SUCCESS
 Notes  : none
 ============================================================================*/
-touch_ret_t qtm_init_scroller_module(qtm_scroller_control_t *qtm_scroller_control);
+touch_ret_t qtm_init_surface_cs(qtm_surface_cs_control_t *qtm_surface_cs_control);
 
 /*============================================================================
-touch_ret_t qtm_scroller_process(qtm_scroller_control_t *qtm_scroller_control)
+touch_ret_t qtm_surface_cs_process(qtm_surface_cs_control_t *qtm_surface_cs_control);
 ------------------------------------------------------------------------------
 Purpose: Scroller position calculation and filtering
 Input  : Pointer to scroller group control data
 Output : TOUCH_SUCCESS
 Notes  : none
 ============================================================================*/
-touch_ret_t qtm_scroller_process(qtm_scroller_control_t *qtm_scroller_control);
+touch_ret_t qtm_surface_cs_process(qtm_surface_cs_control_t *qtm_surface_cs_control);
 
 /*============================================================================
 uint16_t qtm_get_scroller_module_id(void)
@@ -182,7 +184,7 @@ Input  : none
 Output : Module ID
 Notes  : none
 ============================================================================*/
-uint16_t qtm_get_scroller_module_id(void);
+uint16_t qtm_get_surface_cs_module_id(void);
 
 /*============================================================================
 uint8_t qtm_get_scroller_module_ver(void)
@@ -192,6 +194,6 @@ Input  : none
 Output : Module ID - Upper nibble major / Lower nibble minor
 Notes  : none
 ============================================================================*/
-uint8_t qtm_get_scroller_module_ver(void);
+uint8_t qtm_get_surface_cs_module_ver(void);
 
 #endif    /* TOUCH_API_SCROLLER_H */

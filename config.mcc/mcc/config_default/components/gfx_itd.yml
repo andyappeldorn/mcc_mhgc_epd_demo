@@ -1,0 +1,145 @@
+configVersion: 1.0.0
+componentName: gfx_itd
+coreVersion: 5.9.1
+device: PIC32CM5164LE00064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: gfx_itd
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: gfx
+  type: package
+  version: v3.17.1
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments:
+    children:
+    - children:
+      - attributes:
+          id: TouchData
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: lib_qtouch
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: lib_qtouch
+            type: String
+          type: Attributes
+        type: DirectDependency
+      type: Attachments
+    type: gfx_itd
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: gfx_itd
+          x: '967'
+          y: '182'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    DataResolutionBits:
+      attributes:
+        id: DataResolutionBits
+        label: Touch Data Resolution (Bits)
+      type: Combo
+    DriverInitName:
+      attributes:
+        id: DriverInitName
+        label: Driver Name
+      type: String
+    GestureSupport:
+      attributes:
+        id: GestureSupport
+        label: Enable Gestures
+      type: Boolean
+    HorzTouchDataFlip:
+      attributes:
+        id: HorzTouchDataFlip
+        label: Flip Horizontal Position
+      type: Boolean
+    MultiTouchSupport:
+      attributes:
+        id: MultiTouchSupport
+        label: Enable Multi-Touch
+      type: Boolean
+    RTOSEnabled:
+      attributes:
+        id: RTOSEnabled
+        label: RTOS Support Enabled
+      type: Boolean
+    RTOSStackSize:
+      attributes:
+        id: RTOSStackSize
+        label: Stack Size
+      type: Integer
+    RTOSTaskDelay:
+      attributes:
+        id: RTOSTaskDelay
+        label: Task Delay
+      type: Integer
+    RTOSTaskPriority:
+      attributes:
+        id: RTOSTaskPriority
+        label: Task Priority
+      type: Integer
+    RTOSUseDelay:
+      attributes:
+        id: RTOSUseDelay
+        label: Use Task Delay?
+      type: Boolean
+    TouchHeight:
+      attributes:
+        id: TouchHeight
+        label: Height
+      children:
+      - children:
+        - attributes:
+            value: '416'
+          type: User
+        type: Values
+      type: Integer
+    TouchHeightEdgeAdjust:
+      attributes:
+        id: TouchHeightEdgeAdjust
+        label: Edge Adjustment
+      type: Integer
+    TouchPoints:
+      attributes:
+        id: TouchPoints
+        label: Max Touch Points
+      type: Integer
+    TouchWidth:
+      attributes:
+        id: TouchWidth
+        label: Width
+      children:
+      - children:
+        - attributes:
+            value: '240'
+          type: User
+        type: Values
+      type: Integer
+    TouchWidthEdgeAdjust:
+      attributes:
+        id: TouchWidthEdgeAdjust
+        label: Edge Adjustment
+      type: Integer
+    VertTouchDataFlip:
+      attributes:
+        id: VertTouchDataFlip
+        label: Flip Vertical Position
+      type: Boolean
+  userData: {}

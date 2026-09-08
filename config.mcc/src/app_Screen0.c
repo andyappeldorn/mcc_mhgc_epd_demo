@@ -18,6 +18,7 @@ static leFixedString appFixedStr;
 static leChar appFixedStrBuff[APP_FIXED_STR_SIZE] = {0};
 static char cStrBuff[APP_FIXED_STR_SIZE];
 static uint32_t counterValue = DEFAULT_VALUE;
+static uint32_t temperatureValue = 70;
 
 /* Idle timer tracking */
 static volatile unsigned int tickSecs = 0;
@@ -84,4 +85,18 @@ void Screen0_OnUpdate(void)
 
         tickSecs = 0;
     }
+}
+
+void event_Screen0_ButtonWidget_Up_OnReleased(leButtonWidget* btn)
+{
+    //legato_showScreen(screenID_Help);
+    // increment counter
+    // force update
+}
+
+void event_Screen0_ButtonWidget_Down_OnReleased(leButtonWidget* btn)
+{
+    //legato_showScreen(screenID_Help);
+    // decrement counter
+    // force update
 }

@@ -53,6 +53,24 @@ data:
             type: String
           type: Attributes
         type: DirectDependency
+      - attributes:
+          id: lib_qtouch
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: gfx_itd
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: TouchData
+            type: String
+          type: Attributes
+        type: DirectCapability
       type: Attachments
     type: lib_qtouch
   elementPosition:
@@ -62,8 +80,8 @@ data:
     - children:
       - attributes:
           id: lib_qtouch
-          x: '843'
-          y: '198'
+          x: '728'
+          y: '182'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph
@@ -2852,12 +2870,6 @@ data:
       attributes:
         id: DEF_NOD_AKS10
         label: Sensor AKS
-      children:
-      - children:
-        - attributes:
-            value: '1'
-          type: User
-        type: Values
       type: KeyValueSet
     DEF_NOD_AKS100:
       attributes:
@@ -2913,12 +2925,6 @@ data:
       attributes:
         id: DEF_NOD_AKS11
         label: Sensor AKS
-      children:
-      - children:
-        - attributes:
-            value: '1'
-          type: User
-        type: Values
       type: KeyValueSet
     DEF_NOD_AKS110:
       attributes:
@@ -3939,12 +3945,6 @@ data:
       attributes:
         id: DEF_NOD_AKS5
         label: Sensor AKS
-      children:
-      - children:
-        - attributes:
-            value: '1'
-          type: User
-        type: Values
       type: KeyValueSet
     DEF_NOD_AKS50:
       attributes:
@@ -4000,12 +4000,6 @@ data:
       attributes:
         id: DEF_NOD_AKS6
         label: Sensor AKS
-      children:
-      - children:
-        - attributes:
-            value: '1'
-          type: User
-        type: Values
       type: KeyValueSet
     DEF_NOD_AKS60:
       attributes:
@@ -4061,12 +4055,6 @@ data:
       attributes:
         id: DEF_NOD_AKS7
         label: Sensor AKS
-      children:
-      - children:
-        - attributes:
-            value: '1'
-          type: User
-        type: Values
       type: KeyValueSet
     DEF_NOD_AKS70:
       attributes:
@@ -4122,12 +4110,6 @@ data:
       attributes:
         id: DEF_NOD_AKS8
         label: Sensor AKS
-      children:
-      - children:
-        - attributes:
-            value: '1'
-          type: User
-        type: Values
       type: KeyValueSet
     DEF_NOD_AKS80:
       attributes:
@@ -4183,12 +4165,6 @@ data:
       attributes:
         id: DEF_NOD_AKS9
         label: Sensor AKS
-      children:
-      - children:
-        - attributes:
-            value: '1'
-          type: User
-        type: Values
       type: KeyValueSet
     DEF_NOD_AKS90:
       attributes:
@@ -5604,23 +5580,11 @@ data:
       attributes:
         id: DEF_NOD_PTC_PRESCALER0
         label: PTC Clock (MHz)
-      children:
-      - children:
-        - attributes:
-            value: '0'
-          type: User
-        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER1:
       attributes:
         id: DEF_NOD_PTC_PRESCALER1
         label: PTC Clock (MHz)
-      children:
-      - children:
-        - attributes:
-            value: '0'
-          type: User
-        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER10:
       attributes:
@@ -6176,12 +6140,6 @@ data:
       attributes:
         id: DEF_NOD_PTC_PRESCALER2
         label: PTC Clock (MHz)
-      children:
-      - children:
-        - attributes:
-            value: '0'
-          type: User
-        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER20:
       attributes:
@@ -6597,12 +6555,6 @@ data:
       attributes:
         id: DEF_NOD_PTC_PRESCALER3
         label: PTC Clock (MHz)
-      children:
-      - children:
-        - attributes:
-            value: '0'
-          type: User
-        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER30:
       attributes:
@@ -6658,12 +6610,6 @@ data:
       attributes:
         id: DEF_NOD_PTC_PRESCALER4
         label: PTC Clock (MHz)
-      children:
-      - children:
-        - attributes:
-            value: '0'
-          type: User
-        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER40:
       attributes:
@@ -19397,20 +19343,29 @@ data:
             id: lib_qtouch
             value: 'false'
           type: Dynamic
-        - attributes:
-            value: 'true'
-          type: User
         type: Values
       type: Boolean
     ENABLE_SURFACE:
       attributes:
         id: ENABLE_SURFACE
         label: Enable Surface
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     ENABLE_SURFACE1T:
       attributes:
         id: ENABLE_SURFACE1T
         label: Enable Surface 1T
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     ENABLE_SURFACE2T:
       attributes:
@@ -19462,7 +19417,7 @@ data:
       - children:
         - attributes:
             id: lib_qtouch
-            value: Y(28),Y(27),Y(26),Y(3),Y(2),Y(17),Y(16),Y(23),Y(5),Y(21),Y(20),Y(29)
+            value: Y(29),Y(20),Y(21),Y(5),Y(23),Y(16),Y(17),Y(28),Y(27),Y(26),Y(3),Y(2)
           type: Dynamic
         type: Values
       type: String
@@ -19474,7 +19429,7 @@ data:
       - children:
         - attributes:
             id: lib_qtouch
-            value: '0'
+            value: '4000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -19533,11 +19488,23 @@ data:
       attributes:
         id: HORI_NUM_KEY
         label: Horizontal Number of Channel
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: Integer
     HORI_START_KEY:
       attributes:
         id: HORI_START_KEY
         label: Horizontal Start Key
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: Integer
     JSONDATA:
       attributes:
@@ -22411,7 +22378,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '28'
+            value: '29'
           type: User
         type: Values
       type: KeyValueSet
@@ -22422,7 +22389,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '27'
+            value: '20'
           type: User
         type: Values
       type: KeyValueSet
@@ -22433,7 +22400,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '20'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -22494,7 +22461,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '29'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -22995,7 +22962,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '26'
+            value: '21'
           type: User
         type: Values
       type: KeyValueSet
@@ -23416,7 +23383,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -23477,7 +23444,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '23'
           type: User
         type: Values
       type: KeyValueSet
@@ -23538,7 +23505,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '17'
+            value: '16'
           type: User
         type: Values
       type: KeyValueSet
@@ -23599,7 +23566,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '16'
+            value: '17'
           type: User
         type: Values
       type: KeyValueSet
@@ -23660,7 +23627,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '23'
+            value: '28'
           type: User
         type: Values
       type: KeyValueSet
@@ -23721,7 +23688,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '27'
           type: User
         type: Values
       type: KeyValueSet
@@ -23782,7 +23749,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '21'
+            value: '26'
           type: User
         type: Values
       type: KeyValueSet
@@ -26756,23 +26723,11 @@ data:
       attributes:
         id: TOUCH_ENABLE_SCROLLER_0
         label: Use scroller 0
-      children:
-      - children:
-        - attributes:
-            value: 'true'
-          type: User
-        type: Values
       type: Boolean
     TOUCH_ENABLE_SCROLLER_1:
       attributes:
         id: TOUCH_ENABLE_SCROLLER_1
         label: Use scroller 1
-      children:
-      - children:
-        - attributes:
-            value: 'true'
-          type: User
-        type: Values
       type: Boolean
     TOUCH_ENABLE_SCROLLER_10:
       attributes:
@@ -28174,34 +28129,16 @@ data:
       attributes:
         id: TOUCH_SCROLLER_ENABLE_CNT
         label: Number of slider/wheel to enable
-      children:
-      - children:
-        - attributes:
-            value: '2'
-          type: User
-        type: Values
       type: Integer
     TOUCH_SCR_SIZE0:
       attributes:
         id: TOUCH_SCR_SIZE0
         label: Number of buttons or segments that constitute a slider/wheel
-      children:
-      - children:
-        - attributes:
-            value: '5'
-          type: User
-        type: Values
       type: Integer
     TOUCH_SCR_SIZE1:
       attributes:
         id: TOUCH_SCR_SIZE1
         label: Number of buttons or segments that constitute a slider/wheel
-      children:
-      - children:
-        - attributes:
-            value: '7'
-          type: User
-        type: Values
       type: Integer
     TOUCH_SCR_SIZE10:
       attributes:
@@ -29562,12 +29499,6 @@ data:
       attributes:
         id: TOUCH_SCR_START_KEY1
         label: Starting key number of this scroller
-      children:
-      - children:
-        - attributes:
-            value: '5'
-          type: User
-        type: Values
       type: Integer
     TOUCH_SCR_START_KEY10:
       attributes:
@@ -30960,11 +30891,23 @@ data:
       attributes:
         id: VERT_NUM_KEY
         label: Vertical Number of Channel
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: Integer
     VERT_START_KEY:
       attributes:
         id: VERT_START_KEY
         label: Vertical Start Key
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: Integer
     WHEEL_POSTSCALER:
       attributes:
@@ -30990,7 +30933,7 @@ data:
             id: enabled
           children:
           - type: Value
-            value: 'true'
+            value: 'false'
           type: Boolean
         type: Attributes
       type: Library
@@ -31003,7 +30946,7 @@ data:
             id: enabled
           children:
           - type: Value
-            value: 'true'
+            value: 'false'
           type: Boolean
         type: Attributes
       type: File
@@ -31016,14 +30959,40 @@ data:
             id: enabled
           children:
           - type: Value
-            value: 'true'
+            value: 'false'
           type: Boolean
         - attributes:
             id: visible
           children:
           - type: Value
-            value: 'false'
+            value: 'true'
           type: Boolean
         type: Attributes
       type: Menu
+    TOUCH_SURFACE1T_LIB:
+      attributes:
+        id: TOUCH_SURFACE1T_LIB
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: Library
+    TOUCH_SURFACE1T_HEADER:
+      attributes:
+        id: TOUCH_SURFACE1T_HEADER
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
   userData: {}

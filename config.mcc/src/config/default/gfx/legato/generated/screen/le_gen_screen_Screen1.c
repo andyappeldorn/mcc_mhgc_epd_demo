@@ -55,7 +55,6 @@ leResult screenShow_Screen1(void)
     Screen1_btnBack->fn->setBackgroundType(Screen1_btnBack, LE_WIDGET_BACKGROUND_NONE);
     Screen1_btnBack->fn->setBorderType(Screen1_btnBack, LE_WIDGET_BORDER_NONE);
     Screen1_btnBack->fn->setToggleable(Screen1_btnBack, LE_TRUE);
-    Screen1_btnBack->fn->setString(Screen1_btnBack, (leString*)&string_strBack);
     Screen1_btnBack->fn->setPressedImage(Screen1_btnBack, (leImage*)&btn2);
     Screen1_btnBack->fn->setReleasedImage(Screen1_btnBack, (leImage*)&btn);
     Screen1_btnBack->fn->setImagePosition(Screen1_btnBack, LE_RELATIVE_POSITION_BEHIND);
@@ -66,7 +65,6 @@ leResult screenShow_Screen1(void)
     Screen1_ImageWidgetQRCode->fn->setSize(Screen1_ImageWidgetQRCode, 191, 190);
     Screen1_ImageWidgetQRCode->fn->setBackgroundType(Screen1_ImageWidgetQRCode, LE_WIDGET_BACKGROUND_NONE);
     Screen1_ImageWidgetQRCode->fn->setBorderType(Screen1_ImageWidgetQRCode, LE_WIDGET_BORDER_NONE);
-    Screen1_ImageWidgetQRCode->fn->setImage(Screen1_ImageWidgetQRCode, (leImage*)&QR);
     root0->fn->addChild(root0, (leWidget*)Screen1_ImageWidgetQRCode);
 
     leAddRootWidget(root0, 0);

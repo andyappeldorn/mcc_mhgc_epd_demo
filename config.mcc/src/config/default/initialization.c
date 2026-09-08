@@ -272,6 +272,9 @@ void SYS_Initialize ( void* data )
     sysObj.drvSPI0 = DRV_SPI_Initialize(DRV_SPI_INDEX_0, (SYS_MODULE_INIT *)&drvSPI0InitData);
 
 
+    drv_touch_itd_init();
+
+
     /* MISRA C-2023 Rule 11.3, 11.8 deviated below. Deviation record ID -
     H3_MISRAC_2023_R_11_3_DR_1 & H3_MISRAC_2023_R_11_8_DR_1*/
     

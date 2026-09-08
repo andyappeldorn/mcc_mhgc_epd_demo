@@ -15,11 +15,15 @@ extern "C" {
 // screen member widget declarations
 extern leWidget* Screen0_pnlBase;
 extern leImageWidget* Screen0_imgMchp;
-extern leLabelWidget* Screen0_lblSmart;
-extern leLabelWidget* Screen0_lblEasy;
-extern leLabelWidget* Screen0_lblFast;
 extern leButtonWidget* Screen0_btnQuickstart;
 extern leLabelWidget* Screen0_lblCounter;
+extern leButtonWidget* Screen0_ButtonWidget_Up;
+extern leButtonWidget* Screen0_ButtonWidget_Down;
+
+// event handlers
+// !!THESE MUST BE IMPLEMENTED IN THE APPLICATION CODE!!
+void event_Screen0_ButtonWidget_Up_OnReleased(leButtonWidget* btn);
+void event_Screen0_ButtonWidget_Down_OnReleased(leButtonWidget* btn);
 
 // screen lifecycle functions
 // DO NOT CALL THESE DIRECTLY

@@ -87,7 +87,7 @@ data:
       - children:
         - attributes:
             id: sercom2
-            value: '15'
+            value: '54'
           type: Dynamic
         type: Values
       type: Hex
@@ -166,7 +166,7 @@ data:
             id: max
           children:
           - type: Value
-            value: '61499'
+            value: '20500'
           type: Integer
         type: Attributes
       type: Integer
@@ -573,7 +573,7 @@ data:
       - children:
         - attributes:
             id: sercom2
-            value: '1'
+            value: '5'
           type: Dynamic
         type: Values
       type: Integer
@@ -799,7 +799,7 @@ data:
       - children:
         - attributes:
             id: sercom2
-            value: '35337'
+            value: '55469'
           type: Dynamic
         type: Values
       type: Integer

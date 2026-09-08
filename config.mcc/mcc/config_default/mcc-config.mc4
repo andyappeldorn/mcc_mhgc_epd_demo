@@ -13,6 +13,7 @@ modules:
 - drv_spi_0
 - evsys
 - gfx_hal_le
+- gfx_itd
 - gfx_legato
 - le_gfx_driver_epaper
 - le_gfx_intf_spi4
@@ -33,9 +34,9 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\default\PIC32CM5164LE00064.ld
   hash: 5dcb8888ac3d684892bd3b8224d7eb92b6af3b00e63fb2d4523132371b17bc5e
 - file: ..\src\config\default\configuration.h
-  hash: e2530811888497c659b38fee5775d59975f6b86662ad5823db9589c43a2fca78
+  hash: 9fada79a72bcabf2abe3f5526b80541c18dbe6134254c4d3824d93721ed24580
 - file: ..\src\config\default\definitions.h
-  hash: 99d98b3bf4941fe43d7fc3daed72a70fbe445940ab5a0f02dc30b086e4613621
+  hash: 6360597fcff91ea0fab4f24a6de8ac67bfc300ff1a7e8e157b7f2c5b0d36d04d
 - file: ..\src\config\default\device.h
   hash: 1237455b0a0f77ddaac435be52579027b8074e1cacb6796024e8b3e6ac0ff9d6
 - file: ..\src\config\default\device_cache.h
@@ -46,6 +47,10 @@ generatedFileHashHistoryMap:
   hash: 042fdd289460dbddb8e805850af7e3ac9aea95468e37414959781ebc5b2f454d
 - file: ..\src\config\default\driver\driver_common.h
   hash: 5217965f6720b4fdf717e99ce9df4f2c9fbd82bbbc9655847166d1eefa806fee
+- file: ..\src\config\default\driver\input\drv_touch_itd.c
+  hash: b56f7dc31292cc7a4b7ab8bf741ecb70c9ed8d678cbb84a5a5d5d5aed624e953
+- file: ..\src\config\default\driver\input\drv_touch_itd.h
+  hash: 83529c7656447fb8a089b2b6028e27d06d3ab04cbf8757599402ef6dd2eb957e
 - file: ..\src\config\default\driver\spi\drv_spi.h
   hash: eda8fa2bb72a0ae5ec7e02371f071fb0836de15b4e3e90e13f7bb4ba0b687457
 - file: ..\src\config\default\driver\spi\drv_spi_definitions.h
@@ -172,8 +177,8 @@ generatedFileHashHistoryMap:
   hash: 3046d4a3e2fca96e44600812e927ebdb8e6dceb927ebfaaf93bf106dd53caf3d
 - file: ..\src\config\default\gfx\legato\generated\font\FontSmall.c
   hash: e8780c91e81870d7c597f7497e811eb94fce54d54d67ce35a36064dfa47cd6cd
-- file: ..\src\config\default\gfx\legato\generated\image\QR.c
-  hash: 0fe80e86adcdc7e9d786d96ad40b0b4da2575a62d5b1245fef8bb5d7a1a5411b
+- file: ..\src\config\default\gfx\legato\generated\image\arrowDoubleLine.c
+  hash: 9c73551fdfd9e3510fca8d4534e20c7aff22f712b53dd15437ffe7a928368ed3
 - file: ..\src\config\default\gfx\legato\generated\image\btn.c
   hash: 79ff09abf8ecbc33bb1ac07a77a12854b650335f5ef1612718dcece79d96b58b
 - file: ..\src\config\default\gfx\legato\generated\image\btn2.c
@@ -181,7 +186,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\default\gfx\legato\generated\image\imgMchp.c
   hash: d7f30888418c86fc5e7a83bf4fd3ad09cfb436643270c8c4e8f5c2f6bfee04aa
 - file: ..\src\config\default\gfx\legato\generated\le_gen_assets.h
-  hash: 031cd7631523d6c4712f79e35d7b25eb71ad277754d97b461310a2156397ee2c
+  hash: 1c21083614430d59a6a3f7242081a5b2a5ec067fa1dab2bc0e5260a4eeb401d2
 - file: ..\src\config\default\gfx\legato\generated\le_gen_globalpalette.c
   hash: 5f0dec9b5b1be59e8f4a5851209d3d08d155accd7dae2f486bb4f5235605f740
 - file: ..\src\config\default\gfx\legato\generated\le_gen_harmony.c
@@ -197,13 +202,13 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\default\gfx\legato\generated\le_gen_scheme.h
   hash: 68be50ed3ece5579384eada869e6bc500d7db680fa85e3c5ff4dc6d5307fbc01
 - file: ..\src\config\default\gfx\legato\generated\le_gen_stringtable.c
-  hash: 4f31ddda0a9d8f96c33ed2fb9641b391bc6167149709399d205402ebe768fe7e
+  hash: 9d0ba4c7215575d17b4882ee05d9789fa33ee69f83d50e1083a3ab8cedb33bdf
 - file: ..\src\config\default\gfx\legato\generated\screen\le_gen_screen_Screen0.c
-  hash: ec1e3fd12d111a076874a98ec10d8f96455005c5d7cb3810abce17218b7a7849
+  hash: 920900f02b3b95ccae8d4453366973a87a11fc8fca8c5a6fd8ad212c4e1933db
 - file: ..\src\config\default\gfx\legato\generated\screen\le_gen_screen_Screen0.h
-  hash: 187b69ecdf0b410a6f523d727d24127a24cae90e569a86f855759ec80d7b0116
+  hash: a7cb512bc4c2ac339654bc9bed72cbcbbf03fd291cd1962e927e68cfc6a921ae
 - file: ..\src\config\default\gfx\legato\generated\screen\le_gen_screen_Screen1.c
-  hash: a86c9bbaa29110d76114e48eb819fb0b92d551cb5f63c4245c3d0c17141ed4ca
+  hash: 52e8d5f91e23a424444076eecd9fa01fba7051d936e45d7340766c4b3ef4267e
 - file: ..\src\config\default\gfx\legato\generated\screen\le_gen_screen_Screen1.h
   hash: 37f6947f14f35c224ee0fbbc70ef7e2880201fcabebd429764189c8e8474f561
 - file: ..\src\config\default\gfx\legato\image\jpeg\jidctint.c
@@ -593,7 +598,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\default\gfx\legato\widget\window\legato_widget_window_skin_classic.c
   hash: dd6b3e7c710431206685fc51459a31358dae4e99be8dd14849be4fe858ba4cc8
 - file: ..\src\config\default\initialization.c
-  hash: a9516a8c24dafa006d7bd80af8606f14c075b07fa5c4b77a6bf2de948d65eed8
+  hash: d017183fb1a7c2ab0481d5b4c7aede5c63ad38999b42c28302df692a47f0c88b
 - file: ..\src\config\default\interrupts.c
   hash: 7337dc6402779b5540bec639f26fb823dee06e787a71c7e6434a3b27c74889c1
 - file: ..\src\config\default\interrupts.h
@@ -607,7 +612,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\default\osal\osal_impl_basic.h
   hash: 158c4107f883f6d8c0244b73273361d1ca2ebd57c0934572b11a25c532fd22c5
 - file: ..\src\config\default\peripheral\clock\plib_clock.c
-  hash: ad3c31d1ff1f1536028a653800281e1aa5d5c86ad6e02cf275a2a0d42fc6a780
+  hash: 8f2fa77421472e9427355189e17dacab4cb0cfb9fd4f1d548da175f8e28aa448
 - file: ..\src\config\default\peripheral\clock\plib_clock.h
   hash: 48855ddfcdc10b43a141321e043ab6ad2eb994b09fdba511f17f1d93911c536c
 - file: ..\src\config\default\peripheral\dmac\plib_dmac.c
@@ -631,7 +636,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\default\peripheral\pm\plib_pm.h
   hash: 027462b9369dc5bb8873f96fc3b5ca69ceaf3bd205be7246e58a093b16ee633c
 - file: ..\src\config\default\peripheral\port\plib_port.c
-  hash: c9cd0fac7037d3d4fcbdec440dcaf083e0ca814b24e38f887c33f66d224a0679
+  hash: 0fa1b1a6949801327c2149201b613140a3db903aaf650422f29115319305af91
 - file: ..\src\config\default\peripheral\port\plib_port.h
   hash: 4a5a84b4ffbba4e479156c0440158e61f153ee31c3b57ef332267d0840d7aaa2
 - file: ..\src\config\default\peripheral\rtc\plib_rtc.h
@@ -639,13 +644,13 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\default\peripheral\rtc\plib_rtc_timer.c
   hash: 111276244d136c28b812b367e675a05eebbda1653f08a3d0a983c1d051012013
 - file: ..\src\config\default\peripheral\sercom\spi_master\plib_sercom2_spi_master.c
-  hash: 7d7f699f863914c9b3a55df2be92911dafbda63ed9ef6b95e14561a2d064ee05
+  hash: f74098530a5f56cbfcb7b39151a6f2d8fc0b1869053bf28a45adbb2d4eca34f2
 - file: ..\src\config\default\peripheral\sercom\spi_master\plib_sercom2_spi_master.h
   hash: c558db3860f3f81dea950f84ed9ea3c07634dd0368302968a49a43a52818395a
 - file: ..\src\config\default\peripheral\sercom\spi_master\plib_sercom_spi_master_common.h
   hash: 06e3c7813e1608b5008e3c8955569f9cff04bef321a34c35421f7979368a4ada
 - file: ..\src\config\default\peripheral\tc\plib_tc0.c
-  hash: b828ecbcdbcd3dc36d2abe1fbef179fcaa0b9256e0ec8d21165fcdb2cd60a63e
+  hash: 04b336dacbea1bb8d7701576d5ed50acaf394fefdf343a66e557877cb604a72c
 - file: ..\src\config\default\peripheral\tc\plib_tc0.h
   hash: c71eb1c99c9c3244b6d2a5030b97723a3d32d7a2c83c4ab2374c2e947e64b0c0
 - file: ..\src\config\default\peripheral\tc\plib_tc_common.h
@@ -707,7 +712,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\default\system\time\sys_time_definitions.h
   hash: b8c332f36f8a6ed230dc25b1f9f7f2970699947567f80cb06534d405b7a0dd9d
 - file: ..\src\config\default\tasks.c
-  hash: 75606524817c2c27c109496ca6bd667f0c913b33c79bdf51f465ddd013a5c082
+  hash: ab6bcc008e0067dcc1d71ddb4772426857eb50f566f5ea47543b23373b2a8788
 - file: ..\src\config\default\toolchain_specifics.h
   hash: a4f1774c6f1f8c6cd522567536c9e9d75ca63259b868015ac9b0fb0aeeffe1f4
 - file: ..\src\config\default\touch\lib\qtm_acq_pic32cm_le_0x0040.X.a
@@ -716,8 +721,8 @@ generatedFileHashHistoryMap:
   hash: 493082ea8672dbbd87d959b158f63754c545b344029eb5e7ed6bc48e2c55d1d3
 - file: ..\src\config\default\touch\lib\qtm_freq_hop_cm23_0x0006.X.a
   hash: edd13e226f74720cc8f0afc6045a20956a621834127d1dbb0d1c53f50b41ea4e
-- file: ..\src\config\default\touch\lib\qtm_scroller_cm23_0x000b.X.a
-  hash: 5595b5e5bb9488df1ed4e63f968a304632497ab0880581cbd0ce8a5fef5d3009
+- file: ..\src\config\default\touch\lib\qtm_surface_cs_cm23_0x0021.X.a
+  hash: 47de96ba16000c7643b10971df083d57b90fe890d3f8e5d97f79a79bc2e3a954
 - file: ..\src\config\default\touch\lib\qtm_touch_key_cm23_0x0002.X.a
   hash: 8f8ba21473c061b3dedcfddd60df7b402d2fe84162f335cf97e4b7aeb4d490a6
 - file: ..\src\config\default\touch\qtm_acq_pic32cm_le_0x0040_api.h
@@ -728,18 +733,18 @@ generatedFileHashHistoryMap:
   hash: 24ed3242e37471cbe9dd2507e931e88e843c683c9750d30e08f91a9d62a8e7e5
 - file: ..\src\config\default\touch\qtm_freq_hop_auto_0x0004_api.h
   hash: a0e06e45e438b797edcb61796bc74da1b1e488b45ee5263f2a638acdbffe35c9
-- file: ..\src\config\default\touch\qtm_scroller_0x000b_api.h
-  hash: b055b551cbd475e3d999a1aa84fe037875a494709fe475e969e9eedb4f8fb838
+- file: ..\src\config\default\touch\qtm_surface_cs_0x0021_api.h
+  hash: 9b391d07be4115496f56bccdc2e740cc97e26a9481e78958bb5b15867b106558
 - file: ..\src\config\default\touch\qtm_touch_key_0x0002_api.h
   hash: 4840f9cd8def73a029c2090d101548329c92bdf13bd19410029aab45234b42e2
 - file: ..\src\config\default\touch\touch.c
-  hash: bdfeb39bf301427c97e839d3be2aafda1c35783992d48ed011eecafcd05b26dd
+  hash: 6a2780cdd0b35b70253c6fbecb25c7d5e91b5875279aca40df463d12dc24bcf3
 - file: ..\src\config\default\touch\touch.h
-  hash: c758383440ae1950eaa4def22d9ba231027136692ef1be9155673392d8e85059
+  hash: 98cc1a6f5633f6cdc02e9d7fe771216cffc7290822e228053ab3f1d99cb12bb8
 - file: ..\src\config\default\touch\touch_api_ptc.h
-  hash: 87d3f53bb32c87a6e76121b1f244de468aa3cc002777232d1104e26a2708f3e3
+  hash: 4b8da8d600688a594f2cf55c859dfc6bbd7637e24ec46a0415998a5bc9181cdb
 - file: ..\src\config\default\touch\touch_example.c
-  hash: c878d7e1961e39cd79f2b57240e3856ff6c47eea69e8990d2f69d2660328910e
+  hash: 581a196495920a06ccb09c1cbf5361f8f4a9b8187babbed6a691d43af987d624
 - file: ..\src\config\default\touch\touch_example.h
   hash: d97d3b1b603e836e3ee9a7b3efd6a1166d9a100949cd67df7b448b9c7504d777
 - file: ..\src\config\default\user.h

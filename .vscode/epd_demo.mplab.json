@@ -261,7 +261,6 @@
                 "config.mcc/src/config/default/gfx/legato/vector/legato_vector_vline.c",
                 "config.mcc/src/config/default/gfx/legato/generated/font/FontBig.c",
                 "config.mcc/src/config/default/gfx/legato/generated/font/FontSmall.c",
-                "config.mcc/src/config/default/gfx/legato/generated/image/QR.c",
                 "config.mcc/src/config/default/gfx/legato/generated/image/btn.c",
                 "config.mcc/src/config/default/gfx/legato/generated/image/btn2.c",
                 "config.mcc/src/config/default/gfx/legato/generated/image/imgMchp.c",
@@ -273,7 +272,9 @@
                 "config.mcc/src/config/default/gfx/legato/generated/screen/le_gen_screen_Screen0.c",
                 "config.mcc/src/config/default/gfx/legato/generated/screen/le_gen_screen_Screen1.c",
                 "config.mcc/src/config/default/peripheral/dmac/plib_dmac.c",
-                "config.mcc/src/config/default/system/dma/sys_dma.c"
+                "config.mcc/src/config/default/system/dma/sys_dma.c",
+                "config.mcc/src/config/default/driver/input/drv_touch_itd.c",
+                "config.mcc/src/config/default/gfx/legato/generated/image/arrowDoubleLine.c"
             ]
         }
     ]

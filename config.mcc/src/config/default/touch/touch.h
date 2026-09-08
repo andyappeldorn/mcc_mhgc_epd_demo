@@ -120,51 +120,51 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 
 #define NODE_0_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(28), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   X_NONE, Y(29), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_1_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(27), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   X_NONE, Y(20), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_2_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(26), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   X_NONE, Y(21), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_3_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(3), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   X_NONE, Y(5), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_4_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(2), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   X_NONE, Y(23), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_5_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(17), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   X_NONE, Y(16), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_6_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(16), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   X_NONE, Y(17), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_7_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(23), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   X_NONE, Y(28), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_8_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(5), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   X_NONE, Y(27), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_9_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(21), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   X_NONE, Y(26), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_10_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(20), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   X_NONE, Y(3), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_11_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(29), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   X_NONE, Y(2), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
 }
 
 /**********************************************************/
@@ -212,43 +212,43 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 
 #define KEY_5_PARAMS                                                                                            \
 {                                                                                                              \
-    20u, (uint8_t)HYST_25, (uint8_t)AKS_GROUP_1                       \
+    20u, (uint8_t)HYST_25, (uint8_t)NO_AKS_GROUP                       \
 }
 
 
 #define KEY_6_PARAMS                                                                                            \
 {                                                                                                              \
-    20u, (uint8_t)HYST_25, (uint8_t)AKS_GROUP_1                       \
+    20u, (uint8_t)HYST_25, (uint8_t)NO_AKS_GROUP                       \
 }
 
 
 #define KEY_7_PARAMS                                                                                            \
 {                                                                                                              \
-    20u, (uint8_t)HYST_25, (uint8_t)AKS_GROUP_1                       \
+    20u, (uint8_t)HYST_25, (uint8_t)NO_AKS_GROUP                       \
 }
 
 
 #define KEY_8_PARAMS                                                                                            \
 {                                                                                                              \
-    20u, (uint8_t)HYST_25, (uint8_t)AKS_GROUP_1                       \
+    20u, (uint8_t)HYST_25, (uint8_t)NO_AKS_GROUP                       \
 }
 
 
 #define KEY_9_PARAMS                                                                                            \
 {                                                                                                              \
-    20u, (uint8_t)HYST_25, (uint8_t)AKS_GROUP_1                       \
+    20u, (uint8_t)HYST_25, (uint8_t)NO_AKS_GROUP                       \
 }
 
 
 #define KEY_10_PARAMS                                                                                            \
 {                                                                                                              \
-    20u, (uint8_t)HYST_25, (uint8_t)AKS_GROUP_1                       \
+    20u, (uint8_t)HYST_25, (uint8_t)NO_AKS_GROUP                       \
 }
 
 
 #define KEY_11_PARAMS                                                                                            \
 {                                                                                                              \
-    20u, (uint8_t)HYST_25, (uint8_t)AKS_GROUP_1                       \
+    20u, (uint8_t)HYST_25, (uint8_t)NO_AKS_GROUP                       \
 }
 
 
@@ -306,33 +306,60 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
  */
 #define DEF_MAX_ON_DURATION 0u
 
-/**********************************************************/
-/***************** Slider/Wheel Parameters ****************/
-/**********************************************************/
-/* Defines the number of scrollers (sliders or wheels)
- */
-#define DEF_NUM_SCROLLERS 2u
 
-/* Defines scroller parameter setting
- * {touch_scroller_type, touch_start_key, touch_scroller_size,
- * SCROLLER_RESOL_DEADBAND(touch_scroller_resolution,touch_scroller_deadband), touch_scroller_hysterisis,
- * touch_scr_detect_threshold}
- * Configuring scr_detect_threshold: By default, scr_detect_threshold parameter should be
- * set equal to threshold value of the underlying keys. Then the parameter has to be tuned based on the actual contact
- * size of the touch when moved over the scroller. The contact size of the moving touch can be observed from
- * "contact_size" parameter on scroller runtime data structure.
- */
-#define SCROLLER_0_PARAMS                                                                                       \
-{                                                                                                              \
-    (uint8_t)SCROLLER_TYPE_SLIDER, 0u, 5u,                            \
-		SCROLLER_RESOL_DEADBAND((uint8_t)SCR_RESOL_8_BIT, (uint8_t)SCR_DB_10_PERCENT),(uint8_t)8,20\
-}
-#define SCROLLER_1_PARAMS                                                                                       \
-{                                                                                                              \
-    (uint8_t)SCROLLER_TYPE_SLIDER, 5u, 7u,                            \
-		SCROLLER_RESOL_DEADBAND((uint8_t)SCR_RESOL_8_BIT, (uint8_t)SCR_DB_10_PERCENT),(uint8_t)8,20\
-}
+/**********************************************************/
+/***************** Surface Parameters ****************/
+/**********************************************************/
 
+/* Horizontal Start Key <0-65534>
+ * Start key of horizontal axis
+ * Range: 0 to 65534
+ */
+#define SURFACE_CS_START_KEY_H 7u
+/* Horizontal Number of Channel <0-255>
+ * Number of Channels forming horizontal axis
+ * Range: 0 to 255
+ */
+#define SURFACE_CS_NUM_KEYS_H 5u
+/* Vertical Start Key <0-65534>
+ * Start key of vertical axis
+ * Range: 0 to 65534
+ */
+#define SURFACE_CS_START_KEY_V 0u
+/* Vertical Number of Channel <0-255>
+ * Number of Channels forming vertical axis
+ * Range: 0 to 255
+ */
+#define SURFACE_CS_NUM_KEYS_V 7u
+/*  Position Resolution and Deadband Percentage
+ *  Full scale position resolution reported for the axis and the deadband Percentage
+ *  RESOL_2_BIT - RESOL_12_BIT
+ *  DB_NONE - DB_15_PERCENT
+ */
+#define SURFACE_CS_RESOL_DB SCR_RESOL_DEADBAND((uint8_t)RESOL_8_BIT, (uint8_t)DB_1_PERCENT)
+/* Median filter enable and  IIR filter Config
+ * Median Filter <0-1>
+ * Enable or Disable Median Filter
+ * enable - 1
+ * disable - 0
+ * IIR filter <0-3>
+ * Configure IIR filter
+ *  0 - None
+ *  1 - 25%
+ *  2 - 50%
+ *  3 - 75%
+ */
+#define SURFACE_CS_FILT_CFG SCR_MEDIAN_IIR(1u, 3u)
+/* Position Hystersis <0-255>
+ * The minimum travel distance to be reported after contact or direction change
+ * Applicable to Horizontal and Vertical directions
+ */
+#define SURFACE_CS_POS_HYST 3u
+/* Minimum Contact <0-65534>
+ * The minimum contact size measurement for persistent contact tracking.
+ * Contact size is the sum of neighbouring keys' touch deltas forming the touch contact.
+ */
+#define SURFACE_CS_MIN_CONTACT 60u
 
 
 /**********************************************************/
@@ -387,11 +414,11 @@ extern qtm_acq_pic32cm_node_config_t ptc_seq_node_cfg1[DEF_NUM_CHANNELS];
 extern qtm_touch_key_group_config_t qtlib_key_grp_config_set1;
 extern qtm_touch_key_data_t qtlib_key_data_set1[DEF_NUM_SENSORS];
 extern qtm_touch_key_config_t qtlib_key_configs_set1[DEF_NUM_SENSORS];
-/* Scroller variables */
-extern qtm_scroller_config_t qtm_scroller_config1[DEF_NUM_SCROLLERS];
-extern qtm_scroller_data_t qtm_scroller_data1[DEF_NUM_SCROLLERS];
 /* Frequency Hop Autotune variables */
 extern qtm_freq_hop_autotune_config_t qtm_freq_hop_autotune_config1;
+/* Surface variables */
+extern qtm_surface_cs_config_t  qtm_surface_cs_config1;
+extern qtm_surface_contact_data_t qtm_surface_cs_data1;
 extern uint8_t module_error_code;
 
 
