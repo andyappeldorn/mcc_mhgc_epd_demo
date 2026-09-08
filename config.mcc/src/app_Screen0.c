@@ -58,9 +58,10 @@ void Screen0_OnShow(void)
                                         SYS_TIME_PERIODIC);
 
 #ifndef MGS_SIM
-    /* Initial slow refresh to clear any E-Paper ghosting */
+    /* Use GC (slow) LUT for the initial paint to establish a clean baseline.
+     * The driver auto-promotes to DU2 (fast) after this first blit. */
     gfxIOCTLArg_Value arg = {.value.v_uint = 0};
-    DRV_EPD_IOCTL(GFX_IOCTL_EPD_LOAD_FULL_IMAGE, &arg);
+    DRV_EPD_IOCTL(GFX_IOCTL_EPD_FAST_REFRESH, &arg);
 #endif
 }
 
@@ -80,7 +81,6 @@ void Screen0_OnUpdate(void)
         gfxIOCTLArg_Value arg = {.value.v_uint = 0};
         DRV_EPD_IOCTL(GFX_IOCTL_EPD_OVERDRAW, &arg);
 #endif
-        leRedrawAll();
 
         tickSecs = 0;
     }
