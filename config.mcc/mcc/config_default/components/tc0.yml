@@ -298,6 +298,13 @@ data:
       attributes:
         id: TC_FREQUENCY
         label: Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: '4000000'
+          type: Dynamic
+        type: Values
       type: Integer
     TC_INSTANCE_NAME:
       attributes:
@@ -404,7 +411,7 @@ data:
       - children:
         - attributes:
             id: tc0
-            value: '11999'
+            value: '3999'
           type: Dynamic
         type: Values
       type: Long
@@ -412,6 +419,21 @@ data:
       attributes:
         id: TC_TIMER_TIME_MS
         label: Time
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '16.384'
+          type: Float
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
       type: Float
     TC_TIMER_UNIT:
       attributes:

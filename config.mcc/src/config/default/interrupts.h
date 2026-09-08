@@ -60,6 +60,8 @@ void Reset_Handler (void);
 void NonMaskableInt_Handler (void);
 void HardFault_Handler (void);
 void RTC_InterruptHandler (void);
+void DMAC_0_InterruptHandler (void);
+void DMAC_1_InterruptHandler (void);
 void SERCOM2_SPI_InterruptHandler (void);
 void TC0_TimerInterruptHandler (void);
 void PTC_Handler (void);

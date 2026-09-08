@@ -56,15 +56,17 @@
 #include "peripheral/port/plib_port.h"
 #include "peripheral/clock/plib_clock.h"
 #include "peripheral/nvic/plib_nvic.h"
+#include "peripheral/dmac/plib_dmac.h"
 #include "peripheral/pm/plib_pm.h"
 #include "peripheral/tc/plib_tc0.h"
-#include "touch/touch.h"
 #include "peripheral/rtc/plib_rtc.h"
+#include "touch/touch.h"
 #include "system/time/sys_time.h"
 #include "system/input/sys_input.h"
 #include "driver/spi/drv_spi.h"
 #include "system/int/sys_int.h"
 #include "system/ports/sys_ports.h"
+#include "system/dma/sys_dma.h"
 #include "osal/osal.h"
 #include "system/debug/sys_debug.h"
 #include "app.h"
@@ -86,7 +88,7 @@ extern "C" {
 #define DEVICE_SERIES        "PIC32CMLE00"
 
 /* CPU clock frequency */
-#define CPU_CLOCK_FREQUENCY 12000000U
+#define CPU_CLOCK_FREQUENCY 4000000U
 
 // *****************************************************************************
 // *****************************************************************************

@@ -66,13 +66,13 @@
 // *****************************************************************************
 
 /*** Macros for GFX_DISP_INTF_PIN_CS pin ***/
-#define GFX_DISP_INTF_PIN_CS_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = ((uint32_t)1U << 31U))
-#define GFX_DISP_INTF_PIN_CS_Clear()             (PORT_REGS->GROUP[0].PORT_OUTCLR = ((uint32_t)1U << 31U))
-#define GFX_DISP_INTF_PIN_CS_Toggle()            (PORT_REGS->GROUP[0].PORT_OUTTGL = ((uint32_t)1U << 31U))
-#define GFX_DISP_INTF_PIN_CS_OutputEnable()      (PORT_REGS->GROUP[0].PORT_DIRSET = ((uint32_t)1U << 31U))
-#define GFX_DISP_INTF_PIN_CS_InputEnable()       (PORT_REGS->GROUP[0].PORT_DIRCLR = ((uint32_t)1U << 31U))
-#define GFX_DISP_INTF_PIN_CS_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 31U)) & 0x01U)
-#define GFX_DISP_INTF_PIN_CS_PIN                  PORT_PIN_PA31
+#define GFX_DISP_INTF_PIN_CS_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 31U))
+#define GFX_DISP_INTF_PIN_CS_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = ((uint32_t)1U << 31U))
+#define GFX_DISP_INTF_PIN_CS_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = ((uint32_t)1U << 31U))
+#define GFX_DISP_INTF_PIN_CS_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = ((uint32_t)1U << 31U))
+#define GFX_DISP_INTF_PIN_CS_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = ((uint32_t)1U << 31U))
+#define GFX_DISP_INTF_PIN_CS_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 31U)) & 0x01U)
+#define GFX_DISP_INTF_PIN_CS_PIN                  PORT_PIN_PB31
 
 /*** Macros for GFX_DISP_INTF_PIN_RSDC pin ***/
 #define GFX_DISP_INTF_PIN_RSDC_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 0U))

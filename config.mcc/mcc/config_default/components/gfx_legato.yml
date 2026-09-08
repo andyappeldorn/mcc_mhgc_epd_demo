@@ -44,8 +44,8 @@ data:
     - children:
       - attributes:
           id: gfx_legato
-          x: '1112'
-          y: '361'
+          x: '983'
+          y: '354'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph

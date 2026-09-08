@@ -13,10 +13,10 @@ Pin Number,Pin ID,Custom Name,Function,Mode, Direction,Latch,Pull Up,Pull Down,D
 14,PA05,,Available,,,,,,NORMAL
 15,PA06,,Available,,,,,,NORMAL
 16,PA07,,Available,,,,,,NORMAL
-17,PA08,,Available,,,,,,NORMAL
-18,PA09,,Available,,,,,,NORMAL
+17,PA08,,SERCOM2_PAD0,Digital,High Impedance,n/a,No,No,NORMAL
+18,PA09,,SERCOM2_PAD1,Digital,High Impedance,n/a,No,No,NORMAL
 19,PA10,,Available,,,,,,NORMAL
-20,PA11,,Available,,,,,,NORMAL
+20,PA11,,SERCOM2_PAD3,Digital,High Impedance,n/a,No,No,NORMAL
 25,PB12,,Available,,,,,,NORMAL
 26,PB13,,Available,,,,,,NORMAL
 27,PB14,,Available,,,,,,NORMAL
@@ -40,9 +40,9 @@ Pin Number,Pin ID,Custom Name,Function,Mode, Direction,Latch,Pull Up,Pull Down,D
 49,PB22,,Available,,,,,,NORMAL
 50,PB23,,Available,,,,,,NORMAL
 57,PA30,,Available,,,,,,NORMAL
-58,PA31,GFX_DISP_INTF_PIN_CS,GPIO,Digital,In/Out,High,,,NORMAL
+58,PA31,,Available,,,,,,NORMAL
 59,PB30,,Available,,,,,,NORMAL
-60,PB31,,Available,,,,,,NORMAL
+60,PB31,GFX_DISP_INTF_PIN_CS,GPIO,Digital,In/Out,Low,,,NORMAL
 61,PB00,GFX_DISP_INTF_PIN_RSDC,GPIO,Digital,Out,Low,,,NORMAL
 62,PB01,GFX_DISP_INTF_PIN_PWR_EN,GPIO,Digital,Out,High,,,NORMAL
 63,PB02,GFX_DISP_INTF_PIN_RESET,GPIO,Digital,Out,Low,,,NORMAL

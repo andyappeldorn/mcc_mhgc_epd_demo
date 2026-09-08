@@ -122,6 +122,10 @@ static const DRV_SPI_INTERRUPT_SOURCES drvSPI0InterruptSources =
    .intSources.multi.spiTxReadyInt     = (int32_t)SERCOM2_0_IRQn,
    .intSources.multi.spiTxCompleteInt  = (int32_t)SERCOM2_1_IRQn,
    .intSources.multi.spiRxInt          = (int32_t)SERCOM2_2_IRQn,
+    /* DMA Tx interrupt line */
+    .intSources.multi.dmaTxChannelInt      = (int32_t)DMAC_0_IRQn,
+    /* DMA Rx interrupt line */
+    .intSources.multi.dmaRxChannelInt      = (int32_t)DMAC_1_IRQn,
 };
 
 /* SPI Driver Initialization Data */
@@ -142,6 +146,17 @@ static const DRV_SPI_INIT drvSPI0InitData =
     /* SPI Client Objects Pool */
     .clientObjPool = (uintptr_t)&drvSPI0ClientObjPool[0],
 
+    /* DMA Channel for Transmit */
+    .dmaChannelTransmit = DRV_SPI_XMIT_DMA_CH_IDX0,
+
+    /* DMA Channel for Receive */
+    .dmaChannelReceive  = DRV_SPI_RCV_DMA_CH_IDX0,
+
+    /* SPI Transmit Register */
+    .spiTransmitAddress =  (void *)&(SERCOM2_REGS->SPIM.SERCOM_DATA),
+
+    /* SPI Receive Register */
+    .spiReceiveAddress  = (void *)&(SERCOM2_REGS->SPIM.SERCOM_DATA),
 
     /* SPI Queue Size */
     .transferObjPoolSize = DRV_SPI_QUEUE_SIZE_IDX0,
@@ -238,6 +253,8 @@ void SYS_Initialize ( void* data )
     SERCOM2_SPI_Initialize();
 
     EVSYS_Initialize();
+
+    DMAC_Initialize();
 
     TC0_TimerInitialize();
 

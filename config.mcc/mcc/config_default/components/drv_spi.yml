@@ -95,4 +95,40 @@ data:
           type: Boolean
         type: Attributes
       type: File
+    DRV_SPI_SYS_DMA_ENABLE_CNTR:
+      attributes:
+        id: DRV_SPI_SYS_DMA_ENABLE_CNTR
+        label: DRV_SPI_SYS_DMA_ENABLE_CNTR
+      children:
+      - children:
+        - attributes:
+            id: drv_spi
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Integer
+    DRV_SPI_SYS_DMA_ENABLE:
+      attributes:
+        id: DRV_SPI_SYS_DMA_ENABLE
+        label: DRV_SPI_SYS_DMA_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: drv_spi
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    DRV_SPI_SYS_DMA_CODE_ENABLE:
+      attributes:
+        id: DRV_SPI_SYS_DMA_CODE_ENABLE
+        label: DRV_SPI_SYS_DMA_CODE_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: drv_spi
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
   userData: {}

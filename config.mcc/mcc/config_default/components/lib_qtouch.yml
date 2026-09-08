@@ -19474,7 +19474,7 @@ data:
       - children:
         - attributes:
             id: lib_qtouch
-            value: '4000000'
+            value: '0'
           type: Dynamic
         type: Values
       type: Integer

@@ -228,6 +228,30 @@ typedef struct
      * decide whether or not to update the client specific SPI parameters. */
     DRV_HANDLE                      lastClientHandle;
 
+    /* Transmit DMA Channel */
+    SYS_DMA_CHANNEL                 txDMAChannel;
+
+    /* Receive DMA Channel */
+    SYS_DMA_CHANNEL                 rxDMAChannel;
+
+    /* This is the SPI transmit register address. Used for DMA operation. */
+    void*                           txAddress;
+
+    /* This is the SPI receive register address. Used for DMA operation. */
+    void*                           rxAddress;
+
+    bool                            dmaRxChannelIntStatus;
+    bool                            dmaTxChannelIntStatus;
+    bool                            dmaInterruptStatus;
+
+    /* Dummy data is read into this variable by RX DMA */
+    uint32_t                        rxDummyData;
+
+    /* This holds the number of dummy data to be transmitted */
+    size_t                          txDummyDataSize;
+
+    /* This holds the number of dummy data to be received */
+    size_t                          rxDummyDataSize;
 
     const uint32_t*                 remapDataBits;
 

@@ -85,7 +85,7 @@ extern "C" {
 #define SYS_TIME_HW_COUNTER_WIDTH                   (16)
 #define SYS_TIME_HW_COUNTER_PERIOD                  (0xFFFFU)
 #define SYS_TIME_HW_COUNTER_HALF_PERIOD             (SYS_TIME_HW_COUNTER_PERIOD>>1)
-#define SYS_TIME_CPU_CLOCK_FREQUENCY                (12000000)
+#define SYS_TIME_CPU_CLOCK_FREQUENCY                (4000000)
 #define SYS_TIME_COMPARE_UPDATE_EXECUTION_CYCLES    (160)
 
 
@@ -98,6 +98,9 @@ extern "C" {
 /* SPI Driver Instance 0 Configuration Options */
 #define DRV_SPI_INDEX_0                       0
 #define DRV_SPI_CLIENTS_NUMBER_IDX0           1
+#define DRV_SPI_DMA_MODE
+#define DRV_SPI_XMIT_DMA_CH_IDX0              SYS_DMA_CHANNEL_0
+#define DRV_SPI_RCV_DMA_CH_IDX0               SYS_DMA_CHANNEL_1
 #define DRV_SPI_QUEUE_SIZE_IDX0               4
 
 /* SPI Driver Common Configuration Options */
