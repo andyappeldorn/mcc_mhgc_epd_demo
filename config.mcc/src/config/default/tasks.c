@@ -53,6 +53,10 @@
 #include "configuration.h"
 #include "definitions.h"
 #include "sys_tasks.h"
+#include "gfx/interface/drv_gfx_disp_intf.h"
+#include "gfx/driver/controller/epaper/drv_gfx_EPD_controller_local.h"
+
+extern volatile uint8_t measurement_done_touch;
 
 
 
@@ -76,9 +80,14 @@ void SYS_Tasks ( void )
     
 
     /* Maintain Device Drivers */
-        DRV_EPD_Update();
-
     drv_touch_itd_task();
+
+    if (measurement_done_touch)
+    {
+      measurement_done_touch = 0u;
+      DRV_EPD_Update();
+    }
+        
 
 
 

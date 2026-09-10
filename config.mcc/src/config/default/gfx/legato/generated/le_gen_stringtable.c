@@ -30,10 +30,10 @@
  *     codepoint data - the string data
  ****************************************************************************/
 
-const uint8_t stringTable_data[28] =
+const uint8_t stringTable_data[22] =
 {
-    0x02,0x00,0x01,0x00,0x00,0x0C,0x00,0x00,0x01,0x18,0x00,0x00,0x0A,0x00,0x51,0x75,
-    0x69,0x63,0x6B,0x73,0x74,0x61,0x72,0x74,0x01,0x00,0x30,0x00,
+    0x02,0x00,0x01,0x00,0x00,0x0C,0x00,0x00,0x01,0x12,0x00,0x00,0x04,0x00,0x4D,0x6F,
+    0x64,0x65,0x01,0x00,0x30,0x00,
 };
 
 /* font asset pointer list */
@@ -48,7 +48,7 @@ const leStringTable stringTable =
     {
         LE_STREAM_LOCATION_ID_INTERNAL, // data location id
         (void*)stringTable_data, // data address pointer
-        28, // data size
+        22, // data size
     },
     (void*)stringTable_data, // string table data
     fontList, // font lookup table
@@ -57,11 +57,11 @@ const leStringTable stringTable =
 
 
 // string list
-leTableString string_strQuickstart;
+leTableString string_strMode;
 leTableString string_strCount;
 
 void initializeStrings(void)
 {
-    leTableString_Constructor(&string_strQuickstart, stringID_strQuickstart);
+    leTableString_Constructor(&string_strMode, stringID_strMode);
     leTableString_Constructor(&string_strCount, stringID_strCount);
 }

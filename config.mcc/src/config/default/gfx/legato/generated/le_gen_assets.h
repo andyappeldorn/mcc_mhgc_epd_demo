@@ -107,7 +107,7 @@ extern leImage arrowDoubleLine;
  * Baseline:     26
  * Style:        Plain
  * Glyph Count:  95
- * Range Count:  7
+ * Range Count:  4
  * Glyph Ranges: 0x20-0x7E
 ***********************************/
 extern leRasterFont FontSmall;
@@ -135,14 +135,14 @@ extern leRasterFont FontBig;
 #define language_Default    0
 
 // string IDs
-#define stringID_strQuickstart    0
+#define stringID_strMode    0
 #define stringID_strCount    1
 
 extern const leStringTable stringTable;
 
 
 // string list
-extern leTableString string_strQuickstart;
+extern leTableString string_strMode;
 extern leTableString string_strCount;
 
 void initializeStrings(void);

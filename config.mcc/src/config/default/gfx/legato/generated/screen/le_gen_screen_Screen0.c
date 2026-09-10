@@ -5,10 +5,11 @@ static leWidget* root0;
 
 leWidget* Screen0_pnlBase;
 leImageWidget* Screen0_imgMchp;
-leButtonWidget* Screen0_btnQuickstart;
+leButtonWidget* Screen0_btnMode;
 leLabelWidget* Screen0_lblCounter;
 leButtonWidget* Screen0_ButtonWidget_Up;
 leButtonWidget* Screen0_ButtonWidget_Down;
+leLabelWidget* Screen0_LabelTouchCoordinate;
 
 static leBool initialized = LE_FALSE;
 static leBool showing = LE_FALSE;
@@ -50,29 +51,30 @@ leResult screenShow_Screen0(void)
     Screen0_imgMchp->fn->setImage(Screen0_imgMchp, (leImage*)&imgMchp);
     root0->fn->addChild(root0, (leWidget*)Screen0_imgMchp);
 
-    Screen0_btnQuickstart = leButtonWidget_New();
-    Screen0_btnQuickstart->fn->setPosition(Screen0_btnQuickstart, 27, 257);
-    Screen0_btnQuickstart->fn->setSize(Screen0_btnQuickstart, 200, 60);
-    Screen0_btnQuickstart->fn->setScheme(Screen0_btnQuickstart, &WhiteScheme);
-    Screen0_btnQuickstart->fn->setBackgroundType(Screen0_btnQuickstart, LE_WIDGET_BACKGROUND_NONE);
-    Screen0_btnQuickstart->fn->setBorderType(Screen0_btnQuickstart, LE_WIDGET_BORDER_NONE);
-    Screen0_btnQuickstart->fn->setToggleable(Screen0_btnQuickstart, LE_TRUE);
-    Screen0_btnQuickstart->fn->setString(Screen0_btnQuickstart, (leString*)&string_strQuickstart);
-    Screen0_btnQuickstart->fn->setPressedImage(Screen0_btnQuickstart, (leImage*)&btn2);
-    Screen0_btnQuickstart->fn->setReleasedImage(Screen0_btnQuickstart, (leImage*)&btn);
-    Screen0_btnQuickstart->fn->setImagePosition(Screen0_btnQuickstart, LE_RELATIVE_POSITION_BEHIND);
-    root0->fn->addChild(root0, (leWidget*)Screen0_btnQuickstart);
+    Screen0_btnMode = leButtonWidget_New();
+    Screen0_btnMode->fn->setPosition(Screen0_btnMode, 20, 250);
+    Screen0_btnMode->fn->setSize(Screen0_btnMode, 200, 60);
+    Screen0_btnMode->fn->setScheme(Screen0_btnMode, &WhiteScheme);
+    Screen0_btnMode->fn->setBackgroundType(Screen0_btnMode, LE_WIDGET_BACKGROUND_NONE);
+    Screen0_btnMode->fn->setBorderType(Screen0_btnMode, LE_WIDGET_BORDER_NONE);
+    Screen0_btnMode->fn->setToggleable(Screen0_btnMode, LE_TRUE);
+    Screen0_btnMode->fn->setString(Screen0_btnMode, (leString*)&string_strMode);
+    Screen0_btnMode->fn->setPressedImage(Screen0_btnMode, (leImage*)&btn2);
+    Screen0_btnMode->fn->setReleasedImage(Screen0_btnMode, (leImage*)&btn);
+    Screen0_btnMode->fn->setImagePosition(Screen0_btnMode, LE_RELATIVE_POSITION_BEHIND);
+    Screen0_btnMode->fn->setReleasedEventCallback(Screen0_btnMode, event_Screen0_btnMode_OnReleased);
+    root0->fn->addChild(root0, (leWidget*)Screen0_btnMode);
 
     Screen0_lblCounter = leLabelWidget_New();
-    Screen0_lblCounter->fn->setPosition(Screen0_lblCounter, 111, 86);
-    Screen0_lblCounter->fn->setSize(Screen0_lblCounter, 130, 100);
+    Screen0_lblCounter->fn->setPosition(Screen0_lblCounter, 100, 80);
+    Screen0_lblCounter->fn->setSize(Screen0_lblCounter, 141, 100);
     Screen0_lblCounter->fn->setBackgroundType(Screen0_lblCounter, LE_WIDGET_BACKGROUND_NONE);
     Screen0_lblCounter->fn->setHAlignment(Screen0_lblCounter, LE_HALIGN_CENTER);
     Screen0_lblCounter->fn->setString(Screen0_lblCounter, (leString*)&string_strCount);
     root0->fn->addChild(root0, (leWidget*)Screen0_lblCounter);
 
     Screen0_ButtonWidget_Up = leButtonWidget_New();
-    Screen0_ButtonWidget_Up->fn->setPosition(Screen0_ButtonWidget_Up, 20, 74);
+    Screen0_ButtonWidget_Up->fn->setPosition(Screen0_ButtonWidget_Up, 20, 49);
     Screen0_ButtonWidget_Up->fn->setSize(Screen0_ButtonWidget_Up, 80, 80);
     Screen0_ButtonWidget_Up->fn->setScheme(Screen0_ButtonWidget_Up, &WhiteScheme);
     Screen0_ButtonWidget_Up->fn->setBackgroundType(Screen0_ButtonWidget_Up, LE_WIDGET_BACKGROUND_NONE);
@@ -80,12 +82,18 @@ leResult screenShow_Screen0(void)
     root0->fn->addChild(root0, (leWidget*)Screen0_ButtonWidget_Up);
 
     Screen0_ButtonWidget_Down = leButtonWidget_New();
-    Screen0_ButtonWidget_Down->fn->setPosition(Screen0_ButtonWidget_Down, 20, 166);
+    Screen0_ButtonWidget_Down->fn->setPosition(Screen0_ButtonWidget_Down, 20, 142);
     Screen0_ButtonWidget_Down->fn->setSize(Screen0_ButtonWidget_Down, 80, 80);
     Screen0_ButtonWidget_Down->fn->setScheme(Screen0_ButtonWidget_Down, &WhiteScheme);
     Screen0_ButtonWidget_Down->fn->setBackgroundType(Screen0_ButtonWidget_Down, LE_WIDGET_BACKGROUND_NONE);
     Screen0_ButtonWidget_Down->fn->setReleasedEventCallback(Screen0_ButtonWidget_Down, event_Screen0_ButtonWidget_Down_OnReleased);
     root0->fn->addChild(root0, (leWidget*)Screen0_ButtonWidget_Down);
+
+    Screen0_LabelTouchCoordinate = leLabelWidget_New();
+    Screen0_LabelTouchCoordinate->fn->setPosition(Screen0_LabelTouchCoordinate, 0, 317);
+    Screen0_LabelTouchCoordinate->fn->setSize(Screen0_LabelTouchCoordinate, 240, 40);
+    Screen0_LabelTouchCoordinate->fn->setBackgroundType(Screen0_LabelTouchCoordinate, LE_WIDGET_BACKGROUND_NONE);
+    root0->fn->addChild(root0, (leWidget*)Screen0_LabelTouchCoordinate);
 
     leAddRootWidget(root0, 0);
     leSetLayerColorMode(0, LE_COLOR_MODE_MONOCHROME);
@@ -115,10 +123,11 @@ void screenHide_Screen0(void)
 
     Screen0_pnlBase = NULL;
     Screen0_imgMchp = NULL;
-    Screen0_btnQuickstart = NULL;
+    Screen0_btnMode = NULL;
     Screen0_lblCounter = NULL;
     Screen0_ButtonWidget_Up = NULL;
     Screen0_ButtonWidget_Down = NULL;
+    Screen0_LabelTouchCoordinate = NULL;
 
 
     showing = LE_FALSE;

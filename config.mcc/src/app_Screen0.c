@@ -6,61 +6,55 @@
 
 #include <stdio.h>
 #include "definitions.h"
+#include "touch/touch_api_ptc.h"
+#include "driver/input/drv_touch_itd.h"
 
-#define APP_FIXED_STR_SIZE      3
-#define DEFAULT_VALUE           0
-#define MAX_VALUE               99
-#define CLOCK_TICK_TIMER_PERIOD_MS  1000
-#define IDLE_UPDATE_PERIOD_SECS     1
+#define TEMP_STR_SIZE           8
+#define TOUCH_STR_SIZE          16
+#define MAX_POS_VALUE           255
 
-/* Counter display string buffer */
-static leFixedString appFixedStr;
-static leChar appFixedStrBuff[APP_FIXED_STR_SIZE] = {0};
-static char cStrBuff[APP_FIXED_STR_SIZE];
-static uint32_t counterValue = DEFAULT_VALUE;
+/* Temperature display string buffer */
+static leFixedString tempFixedStr;
+static leChar tempFixedStrBuff[TEMP_STR_SIZE] = {0};
+static char tempCStrBuff[TEMP_STR_SIZE];
 static uint32_t temperatureValue = 70;
 
-/* Idle timer tracking */
-static volatile unsigned int tickSecs = 0;
-static SYS_TIME_HANDLE timer = SYS_TIME_HANDLE_INVALID;
+/* Touch coordinate display string buffer */
+static leFixedString touchFixedStr;
+static leChar touchFixedStrBuff[TOUCH_STR_SIZE] = {0};
+static char touchCStrBuff[TOUCH_STR_SIZE];
 
-/* 1-second periodic timer callback - tracks idle time */
-static void Timer_Callback(uintptr_t context)
-{
-    tickSecs++;
-}
+static bool wasTouching = false;
+static int16_t lastScaledX = 0;
+static int16_t lastScaledY = 0;
 
-/* Updates the counter label widget with current value */
-static void UpdateCounterDisplay(void)
+static void UpdateTemperatureDisplay(void)
 {
-    snprintf(cStrBuff, APP_FIXED_STR_SIZE, "%lu", counterValue);
-    appFixedStr.fn->setFromCStr(&appFixedStr, cStrBuff);
-    Screen0_lblCounter->fn->setString(Screen0_lblCounter, (leString*)&appFixedStr);
+    snprintf(tempCStrBuff, TEMP_STR_SIZE, "%lu", temperatureValue);
+    tempFixedStr.fn->setFromCStr(&tempFixedStr, tempCStrBuff);
+    Screen0_lblCounter->fn->setString(Screen0_lblCounter, (leString*)&tempFixedStr);
     Screen0_lblCounter->fn->invalidate(Screen0_lblCounter);
 }
 
-/* Increments counter with wraparound */
-static void IncrementCounter(void)
+static void UpdateTouchDisplay(int16_t x, int16_t y)
 {
-    counterValue = (counterValue < MAX_VALUE) ? counterValue + 1 : DEFAULT_VALUE;
+    snprintf(touchCStrBuff, TOUCH_STR_SIZE, "%d, %d", x, y);
+    touchFixedStr.fn->setFromCStr(&touchFixedStr, touchCStrBuff);
+    Screen0_LabelTouchCoordinate->fn->setString(Screen0_LabelTouchCoordinate, (leString*)&touchFixedStr);
+    Screen0_LabelTouchCoordinate->fn->invalidate(Screen0_LabelTouchCoordinate);
 }
 
 void Screen0_OnShow(void)
 {
-    counterValue = DEFAULT_VALUE;
+    leFixedString_Constructor(&tempFixedStr, tempFixedStrBuff, TEMP_STR_SIZE);
+    tempFixedStr.fn->setFont(&tempFixedStr, (leFont*)&FontBig);
 
-    /* Initialize fixed string for counter display */
-    leFixedString_Constructor(&appFixedStr, appFixedStrBuff, APP_FIXED_STR_SIZE);
-    appFixedStr.fn->setFont(&appFixedStr, (leFont*)&FontBig);
+    leFixedString_Constructor(&touchFixedStr, touchFixedStrBuff, TOUCH_STR_SIZE);
+    touchFixedStr.fn->setFont(&touchFixedStr, (leFont*)&FontSmall);
 
-    /* Start 1-second periodic timer for idle tracking */
-    timer = SYS_TIME_CallbackRegisterMS(Timer_Callback, 1,
-                                        CLOCK_TICK_TIMER_PERIOD_MS,
-                                        SYS_TIME_PERIODIC);
+    UpdateTemperatureDisplay();
 
 #ifndef MGS_SIM
-    /* Use GC (slow) LUT for the initial paint to establish a clean baseline.
-     * The driver auto-promotes to DU2 (fast) after this first blit. */
     gfxIOCTLArg_Value arg = {.value.v_uint = 0};
     DRV_EPD_IOCTL(GFX_IOCTL_EPD_FAST_REFRESH, &arg);
 #endif
@@ -68,35 +62,49 @@ void Screen0_OnShow(void)
 
 void Screen0_OnHide(void)
 {
-    SYS_TIME_TimerDestroy(timer);
 }
 
 void Screen0_OnUpdate(void)
 {
-    if (tickSecs >= IDLE_UPDATE_PERIOD_SECS)
+    bool touching = (get_surface_status() & TOUCH_ACTIVE) != 0;
+
+    if (touching)
     {
-        IncrementCounter();
-        UpdateCounterDisplay();
+        int raw_x = get_surface_position(HOR_POS);
+        int raw_y = get_surface_position(VER_POS);
 
-#ifndef MGS_SIM
-        gfxIOCTLArg_Value arg = {.value.v_uint = 0};
-        DRV_EPD_IOCTL(GFX_IOCTL_EPD_OVERDRAW, &arg);
-#endif
+        int delta = raw_x - (MAX_POS_VALUE / 2);
+        delta = (delta * TOUCH_SCREEN_ACTIVE_WIDTH) / MAX_POS_VALUE;
+        lastScaledX = TOUCH_SCREEN_ACTIVE_WIDTH / 2 + delta;
 
-        tickSecs = 0;
+        delta = raw_y - (MAX_POS_VALUE / 2);
+        delta = (delta * TOUCH_SCREEN_ACTIVE_HEIGHT) / MAX_POS_VALUE;
+        lastScaledY = TOUCH_SCREEN_ACTIVE_HEIGHT / 2 + delta;
+
+        wasTouching = true;
+    }
+    else if (wasTouching)
+    {
+        wasTouching = false;
+        UpdateTouchDisplay(lastScaledX, lastScaledY);
     }
 }
 
 void event_Screen0_ButtonWidget_Up_OnReleased(leButtonWidget* btn)
 {
-    //legato_showScreen(screenID_Help);
-    // increment counter
-    // force update
+    // increment temperature value
+    // update screen
 }
 
 void event_Screen0_ButtonWidget_Down_OnReleased(leButtonWidget* btn)
 {
-    //legato_showScreen(screenID_Help);
-    // decrement counter
-    // force update
+    // decrement temperature value
+    // update screen
 }
+
+void event_Screen0_btnMode_OnReleased(leButtonWidget* btn)
+{
+    // switch between displaying temperature and counter
+    // update screen
+}
+

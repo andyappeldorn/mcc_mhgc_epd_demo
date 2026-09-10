@@ -49,7 +49,7 @@ leResult screenShow_Screen1(void)
     root0->fn->addChild(root0, (leWidget*)Screen1_imgMchp);
 
     Screen1_btnBack = leButtonWidget_New();
-    Screen1_btnBack->fn->setPosition(Screen1_btnBack, 27, 257);
+    Screen1_btnBack->fn->setPosition(Screen1_btnBack, 22, 251);
     Screen1_btnBack->fn->setSize(Screen1_btnBack, 200, 60);
     Screen1_btnBack->fn->setScheme(Screen1_btnBack, &WhiteScheme);
     Screen1_btnBack->fn->setBackgroundType(Screen1_btnBack, LE_WIDGET_BACKGROUND_NONE);
