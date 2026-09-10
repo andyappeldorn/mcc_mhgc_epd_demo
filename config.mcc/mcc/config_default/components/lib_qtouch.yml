@@ -120,6 +120,12 @@ data:
       attributes:
         id: DEF_CONTACT_THRESHOLD
         label: Surface Detect threshold
+      children:
+      - children:
+        - attributes:
+            value: '40'
+          type: User
+        type: Values
       type: Integer
     DEF_DEADBAND_PERCENT:
       attributes:
@@ -130,16 +136,34 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN0
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN1:
       attributes:
         id: DEF_DIGI_FILT_GAIN1
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN10:
       attributes:
         id: DEF_DIGI_FILT_GAIN10
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN100:
       attributes:
@@ -195,6 +219,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN11
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN110:
       attributes:
@@ -690,6 +720,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN2
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN20:
       attributes:
@@ -1105,6 +1141,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN3
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN30:
       attributes:
@@ -1160,6 +1202,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN4
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN40:
       attributes:
@@ -1215,6 +1263,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN5
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN50:
       attributes:
@@ -1270,6 +1324,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN6
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN60:
       attributes:
@@ -1325,6 +1385,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN7
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN70:
       attributes:
@@ -1380,6 +1446,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN8
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN80:
       attributes:
@@ -1435,6 +1507,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN9
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN90:
       attributes:
@@ -17850,16 +17928,34 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY0
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY1:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY1
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY10:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY10
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY100:
       attributes:
@@ -17915,6 +18011,12 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY11
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY110:
       attributes:
@@ -18410,6 +18512,12 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY2
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY20:
       attributes:
@@ -18825,6 +18933,12 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY3
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY30:
       attributes:
@@ -18880,6 +18994,12 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY4
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY40:
       attributes:
@@ -18935,6 +19055,12 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY5
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY50:
       attributes:
@@ -18990,6 +19116,12 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY6
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY60:
       attributes:
@@ -19045,6 +19177,12 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY7
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY70:
       attributes:
@@ -19100,6 +19238,12 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY8
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY80:
       attributes:
@@ -19155,6 +19299,12 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY9
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY90:
       attributes:
@@ -19272,6 +19422,12 @@ data:
       attributes:
         id: DS_ADJACENT_SENSE_LINE_AS_SHIELD
         label: Enable Adjacent Sense Pins as Shield
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     DS_DEDICATED_PIN:
       attributes:
@@ -19405,7 +19561,7 @@ data:
       - children:
         - attributes:
             id: lib_qtouch
-            value: X_NONE,X_NONE,X_NONE,X_NONE,X_NONE,X_NONE,X_NONE,X_NONE,X_NONE,X_NONE,X_NONE,X_NONE
+            value: Y(16)|Y(23)|Y(5)|Y(21)|Y(20)|Y(29)|Y(28)|Y(27)|Y(26)|Y(3)|Y(2),Y(17)|Y(23)|Y(5)|Y(21)|Y(20)|Y(29)|Y(28)|Y(27)|Y(26)|Y(3)|Y(2),Y(17)|Y(16)|Y(5)|Y(21)|Y(20)|Y(29)|Y(28)|Y(27)|Y(26)|Y(3)|Y(2),Y(17)|Y(16)|Y(23)|Y(21)|Y(20)|Y(29)|Y(28)|Y(27)|Y(26)|Y(3)|Y(2),Y(17)|Y(16)|Y(23)|Y(5)|Y(20)|Y(29)|Y(28)|Y(27)|Y(26)|Y(3)|Y(2),Y(17)|Y(16)|Y(23)|Y(5)|Y(21)|Y(29)|Y(28)|Y(27)|Y(26)|Y(3)|Y(2),Y(17)|Y(16)|Y(23)|Y(5)|Y(21)|Y(20)|Y(28)|Y(27)|Y(26)|Y(3)|Y(2),Y(17)|Y(16)|Y(23)|Y(5)|Y(21)|Y(20)|Y(29)|Y(27)|Y(26)|Y(3)|Y(2),Y(17)|Y(16)|Y(23)|Y(5)|Y(21)|Y(20)|Y(29)|Y(28)|Y(26)|Y(3)|Y(2),Y(17)|Y(16)|Y(23)|Y(5)|Y(21)|Y(20)|Y(29)|Y(28)|Y(27)|Y(3)|Y(2),Y(17)|Y(16)|Y(23)|Y(5)|Y(21)|Y(20)|Y(29)|Y(28)|Y(27)|Y(26)|Y(2),Y(17)|Y(16)|Y(23)|Y(5)|Y(21)|Y(20)|Y(29)|Y(28)|Y(27)|Y(26)|Y(3)
           type: Dynamic
         type: Values
       type: String
@@ -19417,7 +19573,7 @@ data:
       - children:
         - attributes:
             id: lib_qtouch
-            value: Y(29),Y(20),Y(21),Y(5),Y(23),Y(16),Y(17),Y(28),Y(27),Y(26),Y(3),Y(2)
+            value: Y(17),Y(16),Y(23),Y(5),Y(21),Y(20),Y(29),Y(28),Y(27),Y(26),Y(3),Y(2)
           type: Dynamic
         type: Values
       type: String
@@ -22378,7 +22534,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '29'
+            value: '17'
           type: User
         type: Values
       type: KeyValueSet
@@ -22389,7 +22545,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '20'
+            value: '16'
           type: User
         type: Values
       type: KeyValueSet
@@ -22962,7 +23118,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '21'
+            value: '23'
           type: User
         type: Values
       type: KeyValueSet
@@ -23444,7 +23600,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '23'
+            value: '21'
           type: User
         type: Values
       type: KeyValueSet
@@ -23505,7 +23661,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '16'
+            value: '20'
           type: User
         type: Values
       type: KeyValueSet
@@ -23566,7 +23722,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '17'
+            value: '29'
           type: User
         type: Values
       type: KeyValueSet
@@ -23810,7 +23966,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '0'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -23818,6 +23974,12 @@ data:
       attributes:
         id: SURFACE_ORIENTATION
         label: Set Orientation of Surface
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: Integer
     SWIPE_TIMEOUT:
       attributes:

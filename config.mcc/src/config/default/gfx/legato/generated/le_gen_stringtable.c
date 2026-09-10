@@ -4,7 +4,7 @@
  * Legato String Table
  * Encoding        ASCII
  * Language Count: 1
- * String Count:   2
+ * String Count:   3
  *****************************************************************************/
 
 /*****************************************************************************
@@ -30,10 +30,10 @@
  *     codepoint data - the string data
  ****************************************************************************/
 
-const uint8_t stringTable_data[22] =
+const uint8_t stringTable_data[32] =
 {
-    0x02,0x00,0x01,0x00,0x00,0x0C,0x00,0x00,0x01,0x12,0x00,0x00,0x04,0x00,0x4D,0x6F,
-    0x64,0x65,0x01,0x00,0x30,0x00,
+    0x03,0x00,0x01,0x00,0x00,0x10,0x00,0x00,0x00,0x16,0x00,0x00,0x01,0x1C,0x00,0x00,
+    0x04,0x00,0x4D,0x6F,0x64,0x65,0x03,0x00,0x4E,0x61,0x4E,0x00,0x01,0x00,0x30,0x00,
 };
 
 /* font asset pointer list */
@@ -48,7 +48,7 @@ const leStringTable stringTable =
     {
         LE_STREAM_LOCATION_ID_INTERNAL, // data location id
         (void*)stringTable_data, // data address pointer
-        22, // data size
+        32, // data size
     },
     (void*)stringTable_data, // string table data
     fontList, // font lookup table
@@ -58,10 +58,12 @@ const leStringTable stringTable =
 
 // string list
 leTableString string_strMode;
+leTableString string_strNaN;
 leTableString string_strCount;
 
 void initializeStrings(void)
 {
     leTableString_Constructor(&string_strMode, stringID_strMode);
+    leTableString_Constructor(&string_strNaN, stringID_strNaN);
     leTableString_Constructor(&string_strCount, stringID_strCount);
 }

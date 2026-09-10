@@ -14,18 +14,20 @@ extern "C" {
 
 // screen member widget declarations
 extern leWidget* Screen0_pnlBase;
-extern leImageWidget* Screen0_imgMchp;
-extern leButtonWidget* Screen0_btnMode;
-extern leLabelWidget* Screen0_lblCounter;
-extern leButtonWidget* Screen0_ButtonWidget_Up;
-extern leButtonWidget* Screen0_ButtonWidget_Down;
-extern leLabelWidget* Screen0_LabelTouchCoordinate;
-
-// event handlers
-// !!THESE MUST BE IMPLEMENTED IN THE APPLICATION CODE!!
-void event_Screen0_btnMode_OnReleased(leButtonWidget* btn);
-void event_Screen0_ButtonWidget_Up_OnReleased(leButtonWidget* btn);
-void event_Screen0_ButtonWidget_Down_OnReleased(leButtonWidget* btn);
+extern leLabelWidget* Screen0_lbl_y1;
+extern leLabelWidget* Screen0_lbl_y2;
+extern leLabelWidget* Screen0_lbl_y3;
+extern leLabelWidget* Screen0_lbl_y4;
+extern leLabelWidget* Screen0_lbl_y5;
+extern leLabelWidget* Screen0_lbl_y6;
+extern leLabelWidget* Screen0_lbl_y7;
+extern leLabelWidget* Screen0_lbl_x1;
+extern leLabelWidget* Screen0_lbl_x2;
+extern leLabelWidget* Screen0_lbl_x3;
+extern leLabelWidget* Screen0_lbl_x4;
+extern leLabelWidget* Screen0_lbl_x5;
+extern leLabelWidget* Screen0_lbl_yPos;
+extern leLabelWidget* Screen0_lbl_xPos;
 
 // screen lifecycle functions
 // DO NOT CALL THESE DIRECTLY

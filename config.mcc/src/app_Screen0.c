@@ -1,7 +1,8 @@
 /*******************************************************************************
- * Screen0 (Counter Screen) Application Logic
+ * Screen0 - Touch Troubleshooting
  *
- * Displays a counter (0-99) that increments automatically after an idle period.
+ * Displays per-sensor delta values (signal - reference) for all 12 touch
+ * sensor nodes, plus scaled X/Y position. Updated every 250ms.
  ******************************************************************************/
 
 #include <stdio.h>
@@ -9,50 +10,101 @@
 #include "touch/touch_api_ptc.h"
 #include "driver/input/drv_touch_itd.h"
 
-#define TEMP_STR_SIZE           8
-#define TOUCH_STR_SIZE          16
+#define NUM_SENSORS             12
+#define DELTA_STR_SIZE          8
+#define COORD_STR_SIZE          8
 #define MAX_POS_VALUE           255
+#define UPDATE_PERIOD_MS        250
 
-/* Temperature display string buffer */
-static leFixedString tempFixedStr;
-static leChar tempFixedStrBuff[TEMP_STR_SIZE] = {0};
-static char tempCStrBuff[TEMP_STR_SIZE];
-static uint32_t temperatureValue = 70;
+static leFixedString deltaFixedStr[NUM_SENSORS];
+static leChar deltaFixedStrBuff[NUM_SENSORS][DELTA_STR_SIZE];
+static char deltaCStrBuff[NUM_SENSORS][DELTA_STR_SIZE];
 
-/* Touch coordinate display string buffer */
-static leFixedString touchFixedStr;
-static leChar touchFixedStrBuff[TOUCH_STR_SIZE] = {0};
-static char touchCStrBuff[TOUCH_STR_SIZE];
+static leFixedString xFixedStr;
+static leChar xFixedStrBuff[COORD_STR_SIZE] = {0};
+static char xCStrBuff[COORD_STR_SIZE];
 
-static bool wasTouching = false;
-static int16_t lastScaledX = 0;
-static int16_t lastScaledY = 0;
+static leFixedString yFixedStr;
+static leChar yFixedStrBuff[COORD_STR_SIZE] = {0};
+static char yCStrBuff[COORD_STR_SIZE];
 
-static void UpdateTemperatureDisplay(void)
+static volatile bool updateTick = false;
+static SYS_TIME_HANDLE timer = SYS_TIME_HANDLE_INVALID;
+
+static leLabelWidget** sensorLabels[NUM_SENSORS];
+
+static void Timer_Callback(uintptr_t context)
 {
-    snprintf(tempCStrBuff, TEMP_STR_SIZE, "%lu", temperatureValue);
-    tempFixedStr.fn->setFromCStr(&tempFixedStr, tempCStrBuff);
-    Screen0_lblCounter->fn->setString(Screen0_lblCounter, (leString*)&tempFixedStr);
-    Screen0_lblCounter->fn->invalidate(Screen0_lblCounter);
+    updateTick = true;
 }
 
-static void UpdateTouchDisplay(int16_t x, int16_t y)
+static void UpdateSensorDeltas(void)
 {
-    snprintf(touchCStrBuff, TOUCH_STR_SIZE, "%d, %d", x, y);
-    touchFixedStr.fn->setFromCStr(&touchFixedStr, touchCStrBuff);
-    Screen0_LabelTouchCoordinate->fn->setString(Screen0_LabelTouchCoordinate, (leString*)&touchFixedStr);
-    Screen0_LabelTouchCoordinate->fn->invalidate(Screen0_LabelTouchCoordinate);
+    for (int i = 0; i < NUM_SENSORS; i++)
+    {
+        int16_t delta = (int16_t)get_sensor_node_signal(i)
+                      - (int16_t)get_sensor_node_reference(i);
+        snprintf(deltaCStrBuff[i], DELTA_STR_SIZE, "%d", delta);
+        deltaFixedStr[i].fn->setFromCStr(&deltaFixedStr[i], deltaCStrBuff[i]);
+
+        leLabelWidget* lbl = *sensorLabels[i];
+        lbl->fn->setString(lbl, (leString*)&deltaFixedStr[i]);
+    }
+}
+
+static void UpdatePositionDisplay(void)
+{
+    int raw_x = get_surface_position(HOR_POS);
+    int raw_y = get_surface_position(VER_POS);
+
+    int delta = raw_x - (MAX_POS_VALUE / 2);
+    delta = (delta * TOUCH_SCREEN_ACTIVE_WIDTH) / MAX_POS_VALUE;
+    int16_t scaledX = TOUCH_SCREEN_ACTIVE_WIDTH / 2 + delta;
+
+    delta = raw_y - (MAX_POS_VALUE / 2);
+    delta = (delta * TOUCH_SCREEN_ACTIVE_HEIGHT) / MAX_POS_VALUE;
+    int16_t scaledY = TOUCH_SCREEN_ACTIVE_HEIGHT / 2 + delta;
+
+    snprintf(xCStrBuff, COORD_STR_SIZE, "%d", scaledX);
+    xFixedStr.fn->setFromCStr(&xFixedStr, xCStrBuff);
+    Screen0_lbl_xPos->fn->setString(Screen0_lbl_xPos, (leString*)&xFixedStr);
+
+    snprintf(yCStrBuff, COORD_STR_SIZE, "%d", scaledY);
+    yFixedStr.fn->setFromCStr(&yFixedStr, yCStrBuff);
+    Screen0_lbl_yPos->fn->setString(Screen0_lbl_yPos, (leString*)&yFixedStr);
 }
 
 void Screen0_OnShow(void)
 {
-    leFixedString_Constructor(&tempFixedStr, tempFixedStrBuff, TEMP_STR_SIZE);
-    tempFixedStr.fn->setFont(&tempFixedStr, (leFont*)&FontBig);
+    sensorLabels[0]  = &Screen0_lbl_y1;
+    sensorLabels[1]  = &Screen0_lbl_y2;
+    sensorLabels[2]  = &Screen0_lbl_y3;
+    sensorLabels[3]  = &Screen0_lbl_y4;
+    sensorLabels[4]  = &Screen0_lbl_y5;
+    sensorLabels[5]  = &Screen0_lbl_y6;
+    sensorLabels[6]  = &Screen0_lbl_y7;
+    sensorLabels[7]  = &Screen0_lbl_x1;
+    sensorLabels[8]  = &Screen0_lbl_x2;
+    sensorLabels[9]  = &Screen0_lbl_x3;
+    sensorLabels[10] = &Screen0_lbl_x4;
+    sensorLabels[11] = &Screen0_lbl_x5;
 
-    leFixedString_Constructor(&touchFixedStr, touchFixedStrBuff, TOUCH_STR_SIZE);
-    touchFixedStr.fn->setFont(&touchFixedStr, (leFont*)&FontSmall);
+    for (int i = 0; i < NUM_SENSORS; i++)
+    {
+        memset(deltaFixedStrBuff[i], 0, DELTA_STR_SIZE);
+        leFixedString_Constructor(&deltaFixedStr[i], deltaFixedStrBuff[i], DELTA_STR_SIZE);
+        deltaFixedStr[i].fn->setFont(&deltaFixedStr[i], (leFont*)&FontSmall);
+    }
 
-    UpdateTemperatureDisplay();
+    leFixedString_Constructor(&xFixedStr, xFixedStrBuff, COORD_STR_SIZE);
+    xFixedStr.fn->setFont(&xFixedStr, (leFont*)&FontSmall);
+
+    leFixedString_Constructor(&yFixedStr, yFixedStrBuff, COORD_STR_SIZE);
+    yFixedStr.fn->setFont(&yFixedStr, (leFont*)&FontSmall);
+
+    timer = SYS_TIME_CallbackRegisterMS(Timer_Callback, 1,
+                                        UPDATE_PERIOD_MS,
+                                        SYS_TIME_PERIODIC);
 
 #ifndef MGS_SIM
     gfxIOCTLArg_Value arg = {.value.v_uint = 0};
@@ -62,49 +114,16 @@ void Screen0_OnShow(void)
 
 void Screen0_OnHide(void)
 {
+    SYS_TIME_TimerDestroy(timer);
 }
 
 void Screen0_OnUpdate(void)
 {
-    bool touching = (get_surface_status() & TOUCH_ACTIVE) != 0;
-
-    if (touching)
+    if (updateTick)
     {
-        int raw_x = get_surface_position(HOR_POS);
-        int raw_y = get_surface_position(VER_POS);
-
-        int delta = raw_x - (MAX_POS_VALUE / 2);
-        delta = (delta * TOUCH_SCREEN_ACTIVE_WIDTH) / MAX_POS_VALUE;
-        lastScaledX = TOUCH_SCREEN_ACTIVE_WIDTH / 2 + delta;
-
-        delta = raw_y - (MAX_POS_VALUE / 2);
-        delta = (delta * TOUCH_SCREEN_ACTIVE_HEIGHT) / MAX_POS_VALUE;
-        lastScaledY = TOUCH_SCREEN_ACTIVE_HEIGHT / 2 + delta;
-
-        wasTouching = true;
-    }
-    else if (wasTouching)
-    {
-        wasTouching = false;
-        UpdateTouchDisplay(lastScaledX, lastScaledY);
+        updateTick = false;
+        UpdateSensorDeltas();
+        UpdatePositionDisplay();
+        Screen0_pnlBase->fn->invalidate(Screen0_pnlBase);
     }
 }
-
-void event_Screen0_ButtonWidget_Up_OnReleased(leButtonWidget* btn)
-{
-    // increment temperature value
-    // update screen
-}
-
-void event_Screen0_ButtonWidget_Down_OnReleased(leButtonWidget* btn)
-{
-    // decrement temperature value
-    // update screen
-}
-
-void event_Screen0_btnMode_OnReleased(leButtonWidget* btn)
-{
-    // switch between displaying temperature and counter
-    // update screen
-}
-

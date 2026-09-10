@@ -186,7 +186,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\default\gfx\legato\generated\image\imgMchp.c
   hash: d7f30888418c86fc5e7a83bf4fd3ad09cfb436643270c8c4e8f5c2f6bfee04aa
 - file: ..\src\config\default\gfx\legato\generated\le_gen_assets.h
-  hash: 528920f8d13020a209a7e248d65e25da7ee9271adc95a961db28cf2e22d661f7
+  hash: d8ccc0694ef910afb38e349e50080b9b270f8db36fa883c3d612014ed07f2fa3
 - file: ..\src\config\default\gfx\legato\generated\le_gen_globalpalette.c
   hash: 5f0dec9b5b1be59e8f4a5851209d3d08d155accd7dae2f486bb4f5235605f740
 - file: ..\src\config\default\gfx\legato\generated\le_gen_harmony.c
@@ -202,11 +202,11 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\default\gfx\legato\generated\le_gen_scheme.h
   hash: 68be50ed3ece5579384eada869e6bc500d7db680fa85e3c5ff4dc6d5307fbc01
 - file: ..\src\config\default\gfx\legato\generated\le_gen_stringtable.c
-  hash: 5787053fa8ee81367e1284d9f41fa0b2532853412efa5f65f74a150834b63fa2
+  hash: a92ccb8f3038cee0900b9974cbfb611962a853ae553b42b5aede0179ebc87033
 - file: ..\src\config\default\gfx\legato\generated\screen\le_gen_screen_Screen0.c
-  hash: 073ed524e8b21fdac5d174ed5eb932867cff99f9342b10af39314bc4a909ad10
+  hash: 4c5530f43a264c49bdc19a2f7c5a12d4152ecd540067f5ff69e5ea70cc2d7a2d
 - file: ..\src\config\default\gfx\legato\generated\screen\le_gen_screen_Screen0.h
-  hash: 7114023eea2a5e839afc79c3638f70f316431f7caa2d6a53aa62f5eacbe0cb7b
+  hash: 087900ef180dbe655efc8ec68cac4cb42daf87110f91266b3e09bd2c8281be42
 - file: ..\src\config\default\gfx\legato\generated\screen\le_gen_screen_Screen1.c
   hash: 389c08ddef6463511be072a1c926592523485b9d956a5f77a40a88ce252f1584
 - file: ..\src\config\default\gfx\legato\generated\screen\le_gen_screen_Screen1.h
@@ -740,7 +740,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\default\touch\touch.c
   hash: 6a2780cdd0b35b70253c6fbecb25c7d5e91b5875279aca40df463d12dc24bcf3
 - file: ..\src\config\default\touch\touch.h
-  hash: 98cc1a6f5633f6cdc02e9d7fe771216cffc7290822e228053ab3f1d99cb12bb8
+  hash: 8afcb335b591cc183cd08722413af14904f7437dd19fb816e889d6714f68291e
 - file: ..\src\config\default\touch\touch_api_ptc.h
   hash: 4b8da8d600688a594f2cf55c859dfc6bbd7637e24ec46a0415998a5bc9181cdb
 - file: ..\src\config\default\touch\touch_example.c

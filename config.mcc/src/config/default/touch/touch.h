@@ -69,8 +69,7 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 /* Defines the Type of sensor
  * Default value: NODE_MUTUAL.
  */
-#define DEF_SENSOR_TYPE NODE_SELFCAP
-
+#define DEF_SENSOR_TYPE NODE_SELFCAP_SHIELD
 
 /* Set sensor calibration mode for charge share delay ,Prescaler or series resistor.
  * Range: CAL_AUTO_TUNE_NONE / CAL_AUTO_TUNE_RSEL / CAL_AUTO_TUNE_PRSC / CAL_AUTO_TUNE_CSD
@@ -120,51 +119,51 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 
 #define NODE_0_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(29), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   Y(16)|Y(23)|Y(5)|Y(21)|Y(20)|Y(29)|Y(28)|Y(27)|Y(26)|Y(3)|Y(2), Y(17), 8,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_2), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_1_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(20), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   Y(17)|Y(23)|Y(5)|Y(21)|Y(20)|Y(29)|Y(28)|Y(27)|Y(26)|Y(3)|Y(2), Y(16), 8,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_2), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_2_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(21), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   Y(17)|Y(16)|Y(5)|Y(21)|Y(20)|Y(29)|Y(28)|Y(27)|Y(26)|Y(3)|Y(2), Y(23), 8,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_2), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_3_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(5), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   Y(17)|Y(16)|Y(23)|Y(21)|Y(20)|Y(29)|Y(28)|Y(27)|Y(26)|Y(3)|Y(2), Y(5), 8,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_2), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_4_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(23), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   Y(17)|Y(16)|Y(23)|Y(5)|Y(20)|Y(29)|Y(28)|Y(27)|Y(26)|Y(3)|Y(2), Y(21), 8,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_2), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_5_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(16), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   Y(17)|Y(16)|Y(23)|Y(5)|Y(21)|Y(29)|Y(28)|Y(27)|Y(26)|Y(3)|Y(2), Y(20), 8,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_2), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_6_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(17), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   Y(17)|Y(16)|Y(23)|Y(5)|Y(21)|Y(20)|Y(28)|Y(27)|Y(26)|Y(3)|Y(2), Y(29), 8,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_2), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_7_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(28), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   Y(17)|Y(16)|Y(23)|Y(5)|Y(21)|Y(20)|Y(29)|Y(27)|Y(26)|Y(3)|Y(2), Y(28), 8,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_2), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_8_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(27), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   Y(17)|Y(16)|Y(23)|Y(5)|Y(21)|Y(20)|Y(29)|Y(28)|Y(26)|Y(3)|Y(2), Y(27), 8,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_2), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_9_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(26), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   Y(17)|Y(16)|Y(23)|Y(5)|Y(21)|Y(20)|Y(29)|Y(28)|Y(27)|Y(3)|Y(2), Y(26), 8,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_2), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_10_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(3), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   Y(17)|Y(16)|Y(23)|Y(5)|Y(21)|Y(20)|Y(29)|Y(28)|Y(27)|Y(26)|Y(2), Y(3), 8,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_2), (uint8_t)FILTER_LEVEL_16                   \
 }
 #define NODE_11_PARAMS                                                                                               \
 {                                                                                                                  \
-   X_NONE, Y(2), 0,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   Y(17)|Y(16)|Y(23)|Y(5)|Y(21)|Y(20)|Y(29)|Y(28)|Y(27)|Y(26)|Y(3), Y(2), 8,(uint8_t)PRSC_DIV_SEL_4, NODE_GAIN(GAIN_1, GAIN_2), (uint8_t)FILTER_LEVEL_16                   \
 }
 
 /**********************************************************/
@@ -359,7 +358,7 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
  * The minimum contact size measurement for persistent contact tracking.
  * Contact size is the sum of neighbouring keys' touch deltas forming the touch contact.
  */
-#define SURFACE_CS_MIN_CONTACT 60u
+#define SURFACE_CS_MIN_CONTACT 40u
 
 
 /**********************************************************/
