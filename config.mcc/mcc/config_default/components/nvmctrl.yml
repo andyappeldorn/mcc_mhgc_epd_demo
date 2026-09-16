@@ -25,10 +25,10 @@ data:
       - children:
         - attributes:
             id: nvmctrl
-            value: '1'
+            value: '3'
           type: Dynamic
         - attributes:
-            value: '1'
+            value: '3'
           type: User
         type: Values
       type: Integer

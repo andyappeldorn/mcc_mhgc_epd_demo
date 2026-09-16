@@ -48,8 +48,8 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
-#include "peripheral/nvmctrl/plib_nvmctrl.h"
 #include "peripheral/sercom/spi_master/plib_sercom2_spi_master.h"
+#include "peripheral/nvmctrl/plib_nvmctrl.h"
 #include "gfx/driver/controller/epaper/drv_gfx_EPD_controller.h"
 #include "peripheral/evsys/plib_evsys.h"
 #include "gfx/legato/generated/le_gen_harmony.h"
@@ -58,9 +58,9 @@
 #include "peripheral/nvic/plib_nvic.h"
 #include "peripheral/dmac/plib_dmac.h"
 #include "peripheral/pm/plib_pm.h"
+#include "peripheral/rtc/plib_rtc.h"
 #include "peripheral/tc/plib_tc0.h"
 #include "touch/touch.h"
-#include "peripheral/rtc/plib_rtc.h"
 #include "driver/input/drv_touch_itd.h"
 #include "system/time/sys_time.h"
 #include "system/input/sys_input.h"
@@ -89,7 +89,7 @@ extern "C" {
 #define DEVICE_SERIES        "PIC32CMLE00"
 
 /* CPU clock frequency */
-#define CPU_CLOCK_FREQUENCY 12000000U
+#define CPU_CLOCK_FREQUENCY 48000000U
 
 // *****************************************************************************
 // *****************************************************************************

@@ -108,7 +108,7 @@ leResult screenShow_Screen0(void)
     root0->fn->addChild(root0, (leWidget*)Screen0_lbl_x1);
 
     Screen0_lbl_x2 = leLabelWidget_New();
-    Screen0_lbl_x2->fn->setPosition(Screen0_lbl_x2, 45, 310);
+    Screen0_lbl_x2->fn->setPosition(Screen0_lbl_x2, 45, 320);
     Screen0_lbl_x2->fn->setSize(Screen0_lbl_x2, 70, 30);
     Screen0_lbl_x2->fn->setScheme(Screen0_lbl_x2, &WhiteScheme);
     Screen0_lbl_x2->fn->setString(Screen0_lbl_x2, (leString*)&string_strNaN);
@@ -122,7 +122,7 @@ leResult screenShow_Screen0(void)
     root0->fn->addChild(root0, (leWidget*)Screen0_lbl_x3);
 
     Screen0_lbl_x4 = leLabelWidget_New();
-    Screen0_lbl_x4->fn->setPosition(Screen0_lbl_x4, 130, 310);
+    Screen0_lbl_x4->fn->setPosition(Screen0_lbl_x4, 130, 320);
     Screen0_lbl_x4->fn->setSize(Screen0_lbl_x4, 70, 30);
     Screen0_lbl_x4->fn->setScheme(Screen0_lbl_x4, &WhiteScheme);
     Screen0_lbl_x4->fn->setString(Screen0_lbl_x4, (leString*)&string_strNaN);
@@ -136,14 +136,14 @@ leResult screenShow_Screen0(void)
     root0->fn->addChild(root0, (leWidget*)Screen0_lbl_x5);
 
     Screen0_lbl_yPos = leLabelWidget_New();
-    Screen0_lbl_yPos->fn->setPosition(Screen0_lbl_yPos, 162, 207);
+    Screen0_lbl_yPos->fn->setPosition(Screen0_lbl_yPos, 160, 215);
     Screen0_lbl_yPos->fn->setSize(Screen0_lbl_yPos, 70, 30);
     Screen0_lbl_yPos->fn->setScheme(Screen0_lbl_yPos, &WhiteScheme);
     Screen0_lbl_yPos->fn->setString(Screen0_lbl_yPos, (leString*)&string_strNaN);
     root0->fn->addChild(root0, (leWidget*)Screen0_lbl_yPos);
 
     Screen0_lbl_xPos = leLabelWidget_New();
-    Screen0_lbl_xPos->fn->setPosition(Screen0_lbl_xPos, 119, 173);
+    Screen0_lbl_xPos->fn->setPosition(Screen0_lbl_xPos, 115, 180);
     Screen0_lbl_xPos->fn->setSize(Screen0_lbl_xPos, 70, 30);
     Screen0_lbl_xPos->fn->setScheme(Screen0_lbl_xPos, &WhiteScheme);
     Screen0_lbl_xPos->fn->setString(Screen0_lbl_xPos, (leString*)&string_strNaN);

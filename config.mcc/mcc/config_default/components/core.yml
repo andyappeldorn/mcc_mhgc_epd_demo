@@ -61,7 +61,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '12000000'
+            value: '48000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -748,7 +748,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '12000000'
+            value: '48000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -1422,7 +1422,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x2EE0'
+            value: '0xBB80'
           type: Dynamic
         type: Values
       type: String
@@ -1448,7 +1448,7 @@ data:
             id: max
           children:
           - type: Value
-            value: '1398.1013'
+            value: '349.52533'
           type: Float
         type: Attributes
       type: Float
@@ -1460,7 +1460,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '12000000'
+            value: '48000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -1472,7 +1472,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '12000000'
+            value: '48000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -1630,7 +1630,7 @@ data:
             value: '3'
           type: Dynamic
         - attributes:
-            value: '1'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -2461,7 +2461,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '12000000'
+            value: '48000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -2473,7 +2473,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '12000000'
+            value: '48000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -4206,7 +4206,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0'
+            value: '48000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -4539,6 +4539,222 @@ data:
           type: User
         type: Values
       type: String
+    CONFIG_CLOCK_DPLL_ENABLE:
+      attributes:
+        id: CONFIG_CLOCK_DPLL_ENABLE
+        label: 'Digital Phase Locked Loop(DPLL) Enable '
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CONFIG_CLOCK_DPLL_LDR_INTEGER:
+      attributes:
+        id: CONFIG_CLOCK_DPLL_LDR_INTEGER
+        label: DPLL Loop Divider Ratio Integer Part
+      children:
+      - children:
+        - attributes:
+            value: '2928'
+          type: User
+        type: Values
+      type: Integer
+    CONFIG_CLOCK_DPLL_LDRFRAC_FRACTION:
+      attributes:
+        id: CONFIG_CLOCK_DPLL_LDRFRAC_FRACTION
+        label: DPLL Loop Divider Ratio Fractional Part
+      children:
+      - children:
+        - attributes:
+            value: '11'
+          type: User
+        type: Values
+      type: Integer
+    CONFIG_CLOCK_DPLL_PRESCALAR:
+      attributes:
+        id: CONFIG_CLOCK_DPLL_PRESCALAR
+        label: DPLL Output Pre-Scalar
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CONFIG_CLOCK_DPLL_REF_CLOCK:
+      attributes:
+        id: CONFIG_CLOCK_DPLL_REF_CLOCK
+        label: DPLL Reference Clock Source
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CONFIG_CLOCK_DPLL_DIVIDER:
+      attributes:
+        id: CONFIG_CLOCK_DPLL_DIVIDER
+        label: DPLL Divider
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: Integer
+    CONFIG_CLOCK_DPLL_DIVIDER_VALUE:
+      attributes:
+        id: CONFIG_CLOCK_DPLL_DIVIDER_VALUE
+        label: CONFIG_CLOCK_DPLL_DIVIDER_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '2'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CONFIG_CLOCK_DPLL_MULTIPLIER_VALUE:
+      attributes:
+        id: CONFIG_CLOCK_DPLL_MULTIPLIER_VALUE
+        label: CONFIG_CLOCK_DPLL_MULTIPLIER_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '2929.6875'
+          type: Dynamic
+        type: Values
+      type: Float
+    GCLK_ID_0_CHEN:
+      attributes:
+        id: GCLK_ID_0_CHEN
+        label: Peripheral Channel 0 Clock Enable
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CONFIG_CLOCK_DFLL_ENABLE:
+      attributes:
+        id: CONFIG_CLOCK_DFLL_ENABLE
+        label: Enable DFLL
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    RTC_CLOCK_FREQUENCY:
+      attributes:
+        id: RTC_CLOCK_FREQUENCY
+        label: RTC Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1024'
+          type: Dynamic
+        type: Values
+      type: Integer
+    XOSC32K_FREQ:
+      attributes:
+        id: XOSC32K_FREQ
+        label: XOSC32K Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '32768'
+          type: Dynamic
+        type: Values
+      type: Integer
+    XOSC32K_EN32K:
+      attributes:
+        id: XOSC32K_EN32K
+        label: Enable 32KHz Output
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    XOSC1K_FREQ:
+      attributes:
+        id: XOSC1K_FREQ
+        label: XOSC1K Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    XOSC32K_EN1K:
+      attributes:
+        id: XOSC32K_EN1K
+        label: Enable 1KHz Output
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    CONF_CLOCK_XOSC32K_ENABLE:
+      attributes:
+        id: CONF_CLOCK_XOSC32K_ENABLE
+        label: 32KHz External Crystal Oscillator(XOSC32K) Enable
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DPLL96M_CLOCK_FREQ:
+      attributes:
+        id: DPLL96M_CLOCK_FREQ
+        label: FDPLL96M Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_0_DIVIDER_VALUE:
+      attributes:
+        id: GCLK_0_DIVIDER_VALUE
+        label: GCLK_0_DIVIDER_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_0_DIV:
+      attributes:
+        id: GCLK_0_DIV
+        label: Division Factor
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: Integer
   userData:
     children:
     - attributes:
