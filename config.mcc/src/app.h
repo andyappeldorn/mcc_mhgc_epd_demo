@@ -170,6 +170,9 @@ void APP_Initialize ( void );
 
 void APP_Tasks( void );
 
+extern volatile int16_t app_touchScaledX;
+extern volatile int16_t app_touchScaledY;
+
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 }

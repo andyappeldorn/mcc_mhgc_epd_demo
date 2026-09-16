@@ -8,12 +8,11 @@
 #include <stdio.h>
 #include "definitions.h"
 #include "touch/touch_api_ptc.h"
-#include "driver/input/drv_touch_itd.h"
+#include "app.h"
 
 #define NUM_SENSORS             12
 #define DELTA_STR_SIZE          8
 #define COORD_STR_SIZE          8
-#define MAX_POS_VALUE           255
 #define UPDATE_PERIOD_MS        250
 
 static leFixedString deltaFixedStr[NUM_SENSORS];
@@ -54,22 +53,11 @@ static void UpdateSensorDeltas(void)
 
 static void UpdatePositionDisplay(void)
 {
-    int raw_x = get_surface_position(HOR_POS);
-    int raw_y = get_surface_position(VER_POS);
-
-    int delta = raw_x - (MAX_POS_VALUE / 2);
-    delta = (delta * TOUCH_SCREEN_ACTIVE_WIDTH) / MAX_POS_VALUE;
-    int16_t scaledX = TOUCH_SCREEN_ACTIVE_WIDTH / 2 + delta;
-
-    delta = raw_y - (MAX_POS_VALUE / 2);
-    delta = (delta * TOUCH_SCREEN_ACTIVE_HEIGHT) / MAX_POS_VALUE;
-    int16_t scaledY = TOUCH_SCREEN_ACTIVE_HEIGHT / 2 + delta;
-
-    snprintf(xCStrBuff, COORD_STR_SIZE, "%d", scaledX);
+    snprintf(xCStrBuff, COORD_STR_SIZE, "%d", app_touchScaledX);
     xFixedStr.fn->setFromCStr(&xFixedStr, xCStrBuff);
     Screen0_lbl_xPos->fn->setString(Screen0_lbl_xPos, (leString*)&xFixedStr);
 
-    snprintf(yCStrBuff, COORD_STR_SIZE, "%d", scaledY);
+    snprintf(yCStrBuff, COORD_STR_SIZE, "%d", app_touchScaledY);
     yFixedStr.fn->setFromCStr(&yFixedStr, yCStrBuff);
     Screen0_lbl_yPos->fn->setString(Screen0_lbl_yPos, (leString*)&yFixedStr);
 }

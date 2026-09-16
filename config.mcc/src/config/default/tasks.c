@@ -85,27 +85,13 @@ void SYS_Tasks ( void )
     if (measurement_done_touch)
     {
       measurement_done_touch = 0u;
+
+      SYS_INP_Tasks();
+      Legato_Tasks();
       DRV_EPD_Update();
     }
-        
 
-
-
-    /* Maintain Middleware & Other Libraries */
-    
-    Legato_Tasks();
-
-
-    SYS_INP_Tasks();
-
-
-
-    /* Maintain the application's state machine. */
-        /* Call Application task APP. */
     APP_Tasks();
-
-
-
 
 }
 

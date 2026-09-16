@@ -28,6 +28,7 @@
 // *****************************************************************************
 
 #include "app.h"
+#include "definitions.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -52,14 +53,35 @@
 
 APP_DATA appData;
 
+volatile int16_t app_touchScaledX = 0;
+volatile int16_t app_touchScaledY = 0;
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Callback Functions
 // *****************************************************************************
 // *****************************************************************************
 
-/* TODO:  Add any necessary callback functions.
-*/
+static void app_touchDownHandler(const SYS_INP_TouchStateEvent* const evt)
+{
+    app_touchScaledX = evt->x;
+    app_touchScaledY = evt->y;
+    leInput_InjectTouchDown(evt->index, evt->x, evt->y);
+}
+
+static void app_touchUpHandler(const SYS_INP_TouchStateEvent* const evt)
+{
+    app_touchScaledX = evt->x;
+    app_touchScaledY = evt->y;
+    leInput_InjectTouchUp(evt->index, evt->x, evt->y);
+}
+
+static void app_touchMoveHandler(const SYS_INP_TouchMoveEvent* const evt)
+{
+    app_touchScaledX = evt->x;
+    app_touchScaledY = evt->y;
+    leInput_InjectTouchMoved(evt->index, evt->x, evt->y);
+}
 
 // *****************************************************************************
 // *****************************************************************************
@@ -91,11 +113,12 @@ void APP_Initialize ( void )
     /* Place the App state machine in its initial state. */
     appData.state = APP_STATE_INIT;
 
-
-
-    /* TODO: Initialize your application's state machine and other
-     * parameters.
-     */
+    SYS_INP_InputListener inputListener;
+    SYS_INP_ListenerInit(&inputListener);
+    inputListener.handleTouchDown = &app_touchDownHandler;
+    inputListener.handleTouchUp   = &app_touchUpHandler;
+    inputListener.handleTouchMove = &app_touchMoveHandler;
+    SYS_INP_AddListener(&inputListener);
 }
 
 
